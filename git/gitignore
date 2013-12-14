@@ -1,5 +1,10 @@
 .DS_Store
+._*
+.Spotlight-V100
+.Trashes
 .svn
+TAGS
+tags
 *~
 *.swp
 *.rbc
@@ -8,3 +13,5 @@ node_modules
 components
 build
 npm-debug.log
+deps
+target
