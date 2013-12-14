@@ -1,0 +1,55 @@
+
+update
+upgrade
+
+# Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
+
+install findutils
+
+install bash
+
+tap homebrew/dupes
+install homebrew/dupes/grep
+
+install zsh
+install emacs
+install ack
+install git
+install tree
+install hub
+install python
+install heroku-toolbelt
+install erlang
+install redis
+install riak
+
+# Install homebrew-cask
+
+tap phinze/homebrew-cask
+install brew-cask
+
+# Install osx apps
+
+cask --appdir="/Applications" \
+  alfred \
+  dropbox \
+  google-drive \
+  one-password \
+  firefox \
+  google-chrome \
+  iterm2 \
+  f-lux \
+  nv-alt \
+  propane \
+  sauce \
+  skype \
+  spotify \
+  virtualbox \
+  vlc \
+  slate \
+  sublime-text
+
+# Remove outdated versions from the cellar
+
+cleanup
+
