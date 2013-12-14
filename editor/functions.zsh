@@ -1,0 +1,4 @@
+
+function e() {
+  `echo $EDITOR`
+}

@@ -12,6 +12,7 @@
 
 ;; Themes
 (require 'init-themes)
+(require 'init-ui)
 
 ;; Move lines with M-p and M-n
 (require 'init-moveline)
