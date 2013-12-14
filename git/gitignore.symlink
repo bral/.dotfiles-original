@@ -1,0 +1,10 @@
+.DS_Store
+.svn
+*~
+*.swp
+*.rbc
+
+node_modules
+components
+build
+npm-debug.log

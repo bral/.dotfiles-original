@@ -1,0 +1,1 @@
+zstyle '*' single-ignored complete
