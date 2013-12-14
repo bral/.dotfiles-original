@@ -41,7 +41,7 @@ nuclear() {
 
 # Prompt
 PRE_PROMT=
-PROMPT="%{$fg[white]%}%~ $(git_prompt_info)
+PROMPT="%{$fg[blue]%}%~ $(git_prompt_info)
 %{$fg[white]%}λ %{$reset_color%}: "
 
 
