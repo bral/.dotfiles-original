@@ -71,7 +71,7 @@
 
 [core]
   excludesfile = ~/.dotfiles/git/gitignore
-  editor = emacs
+  editor = e
 
 [advice]
   statusHints = false
