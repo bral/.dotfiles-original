@@ -13,6 +13,7 @@
 ;; Themes
 (require 'init-themes)
 (require 'init-ui)
+(require 'init-ido)
 
 ;; Languages
 (require 'init-erlang)
