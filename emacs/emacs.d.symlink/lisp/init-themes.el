@@ -1,6 +1,9 @@
 (require-package 'color-theme)
 (require-package 'color-theme-sanityinc-solarized)
 
+(set-face-attribute 'default nil
+  :family "Menlo" :height 180 :weight 'normal)
+
 (setq-default custom-enabled-themes '(sanityinc-solarized-dark))
 
 (defun reapply-themes ()

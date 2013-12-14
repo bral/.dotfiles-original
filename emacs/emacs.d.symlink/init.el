@@ -8,6 +8,7 @@
 ;; Bootstrap
 (require 'init-elpa)
 (require 'init-exec-path)
+(require 'init-backup)
 
 ;; Themes
 (require 'init-themes)
