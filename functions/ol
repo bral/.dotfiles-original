@@ -1,0 +1,9 @@
+##
+# Open localhost at a particular port
+#
+# Ex. ol 9000 // => localhost:9000
+##
+
+function ol() {
+  open "http://localhost:${1:-80}"
+}

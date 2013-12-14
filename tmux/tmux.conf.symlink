@@ -1,0 +1,137 @@
+
+# status bar
+set-option -g status-utf8 on
+
+set-option -g default-shell $SHELL
+
+set-window-option -g automatic-rename on
+
+set -g status-interval 1
+set -g status-justify centre # center align eindow list
+set -g status-left-length 20
+set -g status-right-length 100
+# set -g status-left ''
+set -g status-right ''
+set -g status-left '  #[fg=green]#S'
+# set -g status-right '#[fg=white]%a%l:%M %p#[default] #[fg=blue]%Y-%m-%d  '
+
+# default statusbar colors
+set -g status-fg white
+set -g status-bg default
+
+# default window title colors
+set-window-option -g window-status-fg white
+set-window-option -g window-status-bg default
+set-window-option -g window-status-attr dim
+
+# active window title colors
+set-window-option -g window-status-current-fg white
+set-window-option -g window-status-current-bg blue
+
+set -g default-terminal "screen-256color"
+
+# C-b is not acceptable -- Vim uses it
+set-option -g prefix C-q
+bind-key C-q last-window
+
+# Start numbering at 1
+set -g base-index 1
+
+# Allows for faster key repetition
+set -s escape-time 0
+
+# Rather than constraining window size to the maximum size of any client 
+# connected to the *session*, constrain window size to the maximum size of any 
+# client connected to *that window*. Much more reasonable.
+setw -g aggressive-resize on
+
+# Pane resize in all four directions using vi bindings.
+bind J resize-pane -D
+bind K resize-pane -U
+bind H resize-pane -L
+bind L resize-pane -R
+
+# Allows us to use C-a a <command> to send commands to a TMUX session inside 
+# another TMUX session
+bind-key a send-prefix
+
+# Activity monitoring
+setw -g monitor-activity on
+set -g visual-activity on
+
+# Vi copypaste mode
+bind ` copy-mode
+unbind p
+set-window-option -g mode-keys vi
+bind-key -t vi-copy 'v' begin-selection
+bind-key -t vi-copy 'y' copy-selection
+
+# # after copying to a tmux buffer, hit y again to copy to clipboard
+# bind y run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
+
+# act like vim
+setw -g mode-keys vi
+bind-key -r C-h select-window -t :-
+bind-key -r C-l select-window -t :+
+
+# hjkl pane traversal
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# reload config
+bind R source-file ~/.tmux.conf \; display-message "Config reloaded..."
+
+# rm mouse mode fail
+set -g mode-mouse on
+set -g mouse-resize-pane on
+set -g mouse-select-pane on
+set -g mouse-select-window on
+
+# color
+# set -g default-terminal "xterm-256color"
+set -g default-terminal "screen-256color"
+
+set-option -g default-command "reattach-to-user-namespace -l \"$SHELL\""
+bind-key 'P' run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
+bind-key 'Y' run "tmux set-buffer $ (reattach-to-user-namespace pbpaste); tmux paste-buffer"
+
+bind-key -r C-S-Left swap-window -t -1
+bind-key -r C-S-Right swap-window -t +1
+
+
+# #### COLOUR (Solarized dark)
+
+# # default statusbar colors
+# set-option -g status-bg black #base02
+# set-option -g status-fg yellow #yellow
+# set-option -g status-attr default
+
+# # default window title colors
+# set-window-option -g window-status-fg brightblue #base0
+# set-window-option -g window-status-bg default
+# #set-window-option -g window-status-attr dim
+
+# # active window title colors
+# set-window-option -g window-status-current-fg brightred #orange
+# set-window-option -g window-status-current-bg default
+# #set-window-option -g window-status-current-attr bright
+
+# # pane border
+# set-option -g pane-border-fg black #base02
+# set-option -g pane-active-border-fg brightgreen #base01
+
+# # message text
+# set-option -g message-bg black #base02
+# set-option -g message-fg brightred #orange
+
+# # pane number display
+# set-option -g display-panes-active-colour blue #blue
+# set-option -g display-panes-colour brightred #orange
+
+# # clock
+# set-window-option -g clock-mode-colour green #green
+
+set -g default-terminal "screen-256color-bce"
+# source ~/.solarized/tmux-colors-solarized/tmuxcolors.conf

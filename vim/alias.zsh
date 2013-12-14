@@ -1,0 +1,3 @@
+
+alias ev="vim ~/.vimrc"
+
