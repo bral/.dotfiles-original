@@ -13,6 +13,7 @@ alias er="clear && tree .. -L 3 -I 'node_moduels|components|build|target' --file
 alias j="cd .."
 alias k="cd -"
 
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
