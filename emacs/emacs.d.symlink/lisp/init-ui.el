@@ -8,4 +8,8 @@
 (require-package 'linum)
 (global-linum-mode 1)
 
+;; enable navbar
+(require-package 'nav)
+(nav)
+
 (provide 'init-ui)
