@@ -7,6 +7,7 @@ alias dot='~/.dotfiles/install'
 alias ez="vim ~/.zshrc"
 alias sz="source ~/.zshrc"
 
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
