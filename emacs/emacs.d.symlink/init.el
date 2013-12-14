@@ -14,5 +14,8 @@
 (require 'init-themes)
 (require 'init-ui)
 
+;; Languages
+(require 'init-erlang)
+
 ;; Move lines with M-p and M-n
 (require 'init-moveline)
