@@ -5,6 +5,8 @@ then
   alias git=$hub_path
 fi
 
+alias git="noglob git"
+
 alias gs="git status"
 alias gst="git stash"
 alias gco="git checkout"

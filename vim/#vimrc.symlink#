@@ -1,0 +1,273 @@
+" ~/.vimrc
+" vim:set ft=vim et
+
+
+" Section: Initialize {{{1
+"-------------------------
+
+
+" POWERLINE
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
+" Vundle
+set nocompatible
+filetype off
+set rtp+=~/.dotfiles/vim
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+" Init
+Bundle 'gmarik/vundle'
+" Tools
+Bundle 'tpope/vim-sensible'
+Bundle 'tpope/vim-eunuch'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'mattn/emmet-vim'
+Bundle 'godlygeek/tabular'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'mileszs/ack.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'mattn/gist-vim'
+Bundle 'edkolev/tmuxline.vim'
+Bundle 'UltiSnips'
+Bundle 'Auto-Pairs'
+Bundle 'matze/vim-move'
+" UI
+Bundle 'Solarized'
+Bundle 'telamon/vim-color-github'
+" Bundle 'bling/vim-airline'
+Bundle 'Rykka/colorv.vim'
+Bundle 'nathanaelkane/vim-indent-guides'
+" Langs
+Bundle 'pangloss/vim-javascript'
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-markdown'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'wavded/vim-stylus'
+
+" }}}
+" Section: Options {{{1
+"----------------------
+filetype plugin indent on
+syntax on
+
+set autowrite
+set autoread
+set autoindent
+set backup
+set backupdir=~/.vim/temp
+set nowritebackup
+set noswapfile
+set clipboard=unnamed
+set cursorline
+set cursorcolumn
+set expandtab
+set incsearch
+set ignorecase
+if has("balloon_eval") && has("unix")
+  set ballooneval
+endif
+set hlsearch
+set laststatus=2 " Always show status line
+set lazyredraw
+set mousemodel=popup
+set number
+set pastetoggle=<F2>
+set shiftwidth=2
+set softtabstop=2
+set showcmd         " Show (partial) command in status line.
+set showmatch       " Show matching brackets.
+set smartcase       " Case insensitive searches become sensitive with capitals
+set smarttab        " sw at the start of the line, sts everywhere else
+if exists("+spelllang")
+  set spelllang=en_us
+endif
+if v:version >= 700
+  set viminfo=!,'20,<50,s10,h
+endif
+set undodir=~/.vim/undo
+set undofile
+set undolevels=1000  "maximum number of changes that can be undone
+set undoreload=10000 "maximum number of lines to save for undo on a buffer reload
+set term=xterm-256color
+set t_Co=256
+set timeoutlen=1200 " A little bit more time for macros
+set ttimeoutlen=50  " Make Esc work faster
+set viewoptions=folds
+set wildmenu
+set wildmode=longest:full,full
+if v:version >= 600
+  set autoread
+  set foldmethod=marker
+  set printoptions=paper:letter
+  set sidescrolloff=5
+  set mouse=a
+endif
+" Plugin settings {{{2
+
+let g:move_key_modifier = 'C'
+" function! AirlineInit()
+"   let g:airline_powerline_fonts = 1
+"   let g:airline_theme ='solarized'
+"   let g:airline#extensions#tabline#enabled = 0
+"   let g:airline#themes#solarized#palette = {}
+" endfunction
+" autocmd VimEnter * call AirlineInit()
+" autocmd BufWritePost * silent! :AirlineRefresh
+let g:NERDTreeWinPos = 'right'
+let g:NERDTreeMinimalUI = 1
+echo $runtimepath
+let g:UltiSnipsSnippetsDir='~/.dotfiles/vim'
+let g:UltiSnipsSnippetDirectories=['UltiSnips', 'snippets']
+" }}}2
+" Section: Commands {{{1
+" ----------------------
+
+function! Fancy()
+  if &number
+    if has("gui_running")
+      let &columns=&columns-12
+    endif
+    windo set nonumber foldcolumn=0
+    if exists("+cursorcolumn")
+      set nocursorcolumn nocursorline
+    endif
+  else
+    if has("gui_running")
+      let &columns=&columns+12
+    endif
+    windo set number foldcolumn=4
+    if exists("+cursorcolumn")
+      set cursorline
+    endif
+  endif
+endfunction
+command! -bar Fancy :call Fancy()
+
+function! OpenURL(url)
+  if has("win32")
+    exe "!start cmd /cstart /b ".a:url.""
+  elseif $DISPLAY !~ '^\w'
+    exe "silent !sensible-browser \"".a:url."\""
+  else
+    exe "silent !sensible-browser -T \"".a:url."\""
+  endif
+  redraw!
+endfunction
+command! -nargs=1 OpenURL :call OpenURL(<q-args>)
+" open URL under cursor in browser
+nnoremap gb :OpenURL <cfile><CR>
+nnoremap gA :OpenURL http://www.answers.com/<cword><CR>
+nnoremap gG :OpenURL http://www.google.com/search?q=<cword><CR>
+nnoremap gW :OpenURL http://en.wikipedia.org/wiki/Special:Search?search=<cword><CR>
+
+" }}}
+" Section: Mappings {{{1
+" ----------------------
+
+let mapleader=","
+
+nnoremap ; :
+vnoremap > >gv
+vnoremap < <gv
+nnoremap Q @q
+inoremap kj <Esc>
+vnoremap KJ <Esc>
+inoremap <C-H> <left>
+inoremap <C-L> <right>
+vmap <C-j> <Plug>MoveBlockDown
+vmap <C-k> <Plug>MoveBlockUp
+nmap <A-k> <Plug>MoveLineDown
+nmap <A-j> <Plug>MoveLineDown
+nnoremap <leader>ev :vsplit ~/.vimrc.after<cr>
+nnoremap <leader>sv :source ~/.vimrc<cr>
+nnoremap <leader>hh <esc>:help <c-r><c-w><cr>
+nnoremap <leader>h? <esc>:set <c-r><c-w>?<cr>
+nnoremap <silent> <leader>m :let g:NERDTreeWinPos = "left"<cr>:NERDTreeToggle<cr>
+nnoremap <silent> <leader>. :let g:NERDTreeWinPos = "right"<cr>:NERDTreeToggle<cr>
+nmap <Leader>a :Tabularize /
+vmap <Leader>a :Tabularize /
+nnoremap <leader>rt :Tagbar<cr>
+" Folds
+nnoremap <leader>ff {jV}kzf
+nnoremap <Space> za
+" Camel case
+nnoremap <c-t> /[A-Z]<return>
+" Pretty json
+nnoremap <leader>jt <Esc>:%!json_xs -f json -t json-pretty<CR>
+" Stupid wrapped lines
+" nnoremap j gj
+" nnoremap k gk
+
+" }}}
+" Section: Autocommands {{{1
+" --------------------------
+
+if has("autocmd")
+  if $HOME !~# '^/Users/'
+    filetype off " Debian preloads this before the runtimepath is set
+  endif
+  if version>600
+    filetype plugin indent on
+  else
+    filetype on
+  endif
+  augroup Misc " {{{2
+    autocmd!
+    autocmd FocusLost   * silent! wall
+    if v:version >= 700 && isdirectory(expand("~/.trash"))
+      autocmd BufWritePre,BufWritePost * if exists("s:backupdir") | set backupext=~ | let &backupdir = s:backupdir | unlet s:backupdir | endif
+      autocmd BufWritePre ~/*
+            \ let s:path = expand("~/.trash").strpart(expand("<afile>:p:~:h"),1) |
+            \ if !isdirectory(s:path) | call mkdir(s:path,"p") | endif |
+            \ let s:backupdir = &backupdir |
+            \ let &backupdir = escape(s:path,'\,').','.&backupdir |
+            \ let &backupext = strftime(".%Y%m%d%H%M%S~",getftime(expand("<afile>:p")))
+    endif
+  augroup END " }}}
+  augroup FTCheck " {{{2
+    autocmd!
+    autocmd BufNewFile,BufRead *.txt,README,INSTALL,NEWS,TODO if &ft == ""|set ft=text|endif
+  augroup END " }}}2
+  augroup FTOptions " {{{2
+    autocmd!
+    autocmd FileType sh,zsh,csh,tcsh        inoremap <silent> <buffer> <C-X>! #!/bin/<C-R>=&ft<CR>
+    autocmd FileType css  silent! setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType markdown,text,txt setlocal tw=78 linebreak nolist
+    autocmd FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
+    autocmd FileType * if exists("+completefunc") && &completefunc == "" | setlocal completefunc=syntaxcomplete#Complete | endif
+    autocmd BufWritePost % source %
+  augroup END " }}}
+endif " }}}
+" Section: Visual {{{1
+" --------------------
+
+if (&t_Co > 2 || has("gui_running")) && has("syntax")
+  set background=dark
+  let g:solarized_termcolors=16
+  colorscheme solarized
+endif " }}}
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
+
+" TODO put these somewhere else
+autocmd BufWinEnter * silent! loadview 
+autocmd BufWinLeave * silent! mkview
+
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+autocmd VimEnter * if !argc() | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") 
+  \&& b:NERDTreeType == "primary") | q | endif
+
+

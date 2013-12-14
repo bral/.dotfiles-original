@@ -9,6 +9,10 @@ alias sz="source ~/.zshrc"
 
 # movement
 alias l="lsr"
-alias er="clear && tree .. -L 3 -I 'node_moduels|components|build|target' --filelimit 12"
+alias er="clear && tree .. -L 3 -I 'node_moduels|components|build|target' --filelimit 12 -C"
 alias j="cd .."
 alias k="cd -"
+
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
