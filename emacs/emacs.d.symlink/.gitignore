@@ -6,3 +6,5 @@ undohist
 .session
 .places
 .mc-lists.el
+.mc-lists.el
+eshell
