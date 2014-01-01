@@ -46,6 +46,7 @@
 (require 'init-mmm)
 
 ;; Editing
+(require 'init-parens)
 (require 'init-multicursor)
 (require 'init-undo-tree)
 (require 'init-whitespace)
@@ -57,6 +58,7 @@
 
 ;; Languages
 (require 'init-css)
+(require 'init-elisp)
 (require 'init-erlang)
 (require 'init-jade)
 (require 'init-javascript)
