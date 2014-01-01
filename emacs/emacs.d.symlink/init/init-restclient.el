@@ -25,6 +25,22 @@
 (global-set-key (kbd "H-r") 'open-http-buffer)
 (global-set-key (kbd "s-r") 'open-http-buffer)
 
+(defun open-link-in-rest-client(&optional event)
+  "Opens a link in the rest client"
+  (interactive (list last-input-event))
+  (save-excursion
+    (if event (posn-set-point (event-end event)))
+    (let ((address (save-excursion (goto-address-find-address-at-point))))
+	(let ((url (browse-url-url-at-point)))
+	  (if url
+	      (with-current-buffer (get-buffer "*Rest Client*")
+		(goto-char (point-max))
+		(insert (concat "\n#\nGET " url "\n\n"))
+		(pop-to-buffer (current-buffer)))
+	    (error "No e-mail address or URL found"))))))
+
+(global-set-key [S-s-mouse-1] 'open-link-in-rest-client)
+
 (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
 
 (provide 'init-restclient)

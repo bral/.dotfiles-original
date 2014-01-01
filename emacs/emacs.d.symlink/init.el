@@ -34,6 +34,7 @@
 (require 'init-maxframe)
 (require 'init-uniquify)
 (require 'init-appearance)
+(require 'init-urls)
 
 ;; Misc
 (require 'init-ido)
