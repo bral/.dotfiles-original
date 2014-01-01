@@ -38,7 +38,6 @@
 ;; Misc
 (require 'init-ido)
 (require 'init-places)
-(require 'init-whitespace)
 (require 'init-flycheck)
 (require 'init-hippie-expand)
 ;; (require 'init-autocomplete)
@@ -47,6 +46,8 @@
 (require 'init-mmm)
 
 (require 'init-multicursor)
+(require 'init-undo-tree)
+(require 'init-whitespace)
 (require 'init-editing)
 
 (provide 'init)
