@@ -31,10 +31,6 @@
 (require 'init-uniquify)
 (require 'init-appearance)
 
-;; Languages
-(require 'init-mode-map)
-(require 'init-erlang)
-
 ;; Misc
 (require 'init-ido)
 (require 'init-places)
@@ -45,9 +41,18 @@
 (require 'init-sessions)
 (require 'init-mmm)
 
+;; Editing
 (require 'init-multicursor)
 (require 'init-undo-tree)
 (require 'init-whitespace)
+(require 'init-wholeline)
 (require 'init-editing)
+
+;; Source control
+(require 'init-git)
+
+;; Languages
+(require 'init-mode-map)
+(require 'init-erlang)
 
 (provide 'init)
