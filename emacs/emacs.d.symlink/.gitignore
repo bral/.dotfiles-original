@@ -3,3 +3,4 @@ backup*
 frame-restore-parameters
 .session
 undohist
+.mc-lists.el

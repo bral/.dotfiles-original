@@ -62,4 +62,12 @@
 (require 'init-mode-map)
 (require 'init-stylus)
 
+;; Server
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
+;; Locales
+(require 'init-locales)
+
 (provide 'init)
