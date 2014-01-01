@@ -1,0 +1,5 @@
+.emacs.desktop*
+backup*
+frame-restore-parameters
+.session
+undohist
