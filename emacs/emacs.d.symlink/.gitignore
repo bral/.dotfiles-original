@@ -1,10 +1,10 @@
 .emacs.desktop*
 backup*
-history
+*history*
 frame-restore-parameters
 undohist
 .session
 .places
 .mc-lists.el
-.mc-lists.el
-eshell
+eshell/lastdir
+init/init-local.el

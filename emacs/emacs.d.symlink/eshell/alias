@@ -1,0 +1,7 @@
+alias l ls -lah $*
+alias j cd .. $*
+alias k cd - $*
+alias .. cd ..
+alias ... cd ../..
+alias .... cd ../../..
+alias ..... cd ../../../..
