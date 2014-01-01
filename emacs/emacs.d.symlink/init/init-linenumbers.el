@@ -1,4 +1,4 @@
-(linum-mode t)
+(global-linum-mode 1)
 
 ;; TODO disable line numbers in eshell, git, etc
 
