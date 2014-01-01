@@ -52,7 +52,12 @@
 (require 'init-git)
 
 ;; Languages
-(require 'init-mode-map)
+(require 'init-css)
 (require 'init-erlang)
+(require 'init-jade)
+(require 'init-javascript)
+(require 'init-markdown)
+(require 'init-mode-map)
+(require 'init-stylus)
 
 (provide 'init)
