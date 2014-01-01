@@ -53,6 +53,7 @@
 (require 'init-wholeline)
 (require 'init-linenumbers)
 (require 'init-editing)
+(require 'init-yasnippet)
 
 ;; Source control
 (require 'init-git)

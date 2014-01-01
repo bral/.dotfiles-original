@@ -8,6 +8,7 @@
 ;; Init paredit
 (require-package 'paredit)
 (autoload 'enable-paredit-mode "paredit")
+(paredit-mode 1)
 
 ;; Use paredit everywhere
 (require-package 'paredit-everywhere)
