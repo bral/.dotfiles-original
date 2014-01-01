@@ -1,6 +1,4 @@
-alias e="emacs --color"
-alias es="emacs --daemon -nwq"
-alias ec="emacsclient --tty "
-alias et="emacsclient --tty"
-      
-export EDITOR="e"
+alias em="emacs --color"
+alias ems="emacs --daemon"
+alias emc="emacsclient -t"
+alias emk="emacsclient -e '(kill-emacs)'"

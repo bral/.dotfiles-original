@@ -1,3 +1,1 @@
-
 export EDITOR="emacsclient -t"
-

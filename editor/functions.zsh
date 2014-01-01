@@ -1,4 +1,7 @@
-
 function e() {
-  `echo $EDITOR`
+  `echo $EDITOR $1`
+}
+
+function e?() {
+  echo $EDITOR
 }

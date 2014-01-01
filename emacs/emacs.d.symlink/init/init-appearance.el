@@ -20,6 +20,9 @@
 ;; Make zooming affect frame instead of buffers
 ;; (require-package 'zoom-frm)
 
+;; Show keystrokes in progress
+(setq echo-keystrokes 0.1)
+
 ;; Cleanup modeline
 (require-package 'diminish)
 (eval-after-load "paredit" '(diminish 'paredit-mode))

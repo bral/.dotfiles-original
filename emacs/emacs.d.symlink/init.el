@@ -56,6 +56,7 @@
 (require 'init-linenumbers)
 (require 'init-editing)
 (require 'init-yasnippet)
+(require 'init-move-text)
 
 ;; Source control
 (require 'init-git)
@@ -78,10 +79,12 @@
 ;; Locales
 (require 'init-locales)
 
+(require 'init-local)
+
 ;; Get settings for currently logged in user
-(setq user-settings-dir (concat user-emacs-directory "users/" user-login-name))
-(when (file-exists-p user-settings-dir)
-  (add-to-list 'load-path user-settings-dir)
-  (mapc 'load (directory-files user-settings-dir nil "^[^#].*el$")))
+; (setq user-settings-dir (concat user-emacs-directory "users/" user-login-name))
+; (add-to-list 'load-path user-settings-dir)
+; (when (file-exists-p user-settings-dir)
+;   (mapc 'load (directory-files user-settings-dir nil "^[^#].*el$")))
 
 (provide 'init)
