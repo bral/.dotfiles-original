@@ -17,6 +17,9 @@
 
 (require-package 'idomenu)
 
+(require-package 'ido-vertical-mode)
+(ido-vertical-mode t)
+
 ;; Allow the same buffer to be open in different frames
 (setq ido-default-buffer-method 'selected-window)
 
