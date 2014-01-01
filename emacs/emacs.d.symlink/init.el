@@ -51,6 +51,7 @@
 (require 'init-undo-tree)
 (require 'init-whitespace)
 (require 'init-wholeline)
+(require 'init-linenumbers)
 (require 'init-editing)
 
 ;; Source control
@@ -65,6 +66,14 @@
 (require 'init-markdown)
 (require 'init-mode-map)
 (require 'init-stylus)
+
+;; Server
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
+;; Locales
+(require 'init-locales)
 
 ;; Get settings for currently logged in user
 (setq user-settings-dir (concat user-emacs-directory "users/" user-login-name))

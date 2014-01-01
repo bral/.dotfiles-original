@@ -5,4 +5,4 @@ frame-restore-parameters
 undohist
 .session
 .places
-.custom.el
+.mc-lists.el
