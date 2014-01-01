@@ -44,6 +44,7 @@
 (require 'init-windows)
 (require 'init-sessions)
 (require 'init-mmm)
+(require 'init-restclient)
 
 ;; Editing
 (require 'init-parens)
