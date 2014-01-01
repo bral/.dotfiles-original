@@ -18,7 +18,7 @@
 (setq indicate-empty-lines t)
 
 ;; Make zooming affect frame instead of buffers
-(require-package 'zoom-frm)
+;; (require-package 'zoom-frm)
 
 ;; Cleanup modeline
 (require-package 'diminish)

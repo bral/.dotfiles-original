@@ -1,5 +1,8 @@
 .emacs.desktop*
 backup*
+history
 frame-restore-parameters
-.session
 undohist
+.session
+.places
+.custom.el
