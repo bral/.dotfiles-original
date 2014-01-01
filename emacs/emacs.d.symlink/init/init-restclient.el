@@ -33,7 +33,7 @@
     (let ((address (save-excursion (goto-address-find-address-at-point))))
 	(let ((url (browse-url-url-at-point)))
 	  (if url
-	      (with-current-buffer (get-buffer "*Rest Client*")
+	      (with-current-buffer (get-buffer-create "*Rest Client*")
 		(goto-char (point-max))
 		(insert (concat "\n#\nGET " url "\n\n"))
 		(pop-to-buffer (current-buffer)))
