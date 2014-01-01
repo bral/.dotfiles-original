@@ -49,6 +49,7 @@
 (define-key evil-emacs-state-map "k" #'maybe-exit)
 (define-key evil-insert-state-map "k" #'maybe-exit)
 (define-key evil-replace-state-map "k" #'maybe-exit)
+(define-key evil-visual-state-map "K" #'maybe-exit)
 
 ;; Better line openings.
 (defun open-line-below ()
@@ -95,9 +96,12 @@
 
 ;; Window / Buffer
 (define-key evil-normal-state-map "-" 'delete-other-windows)
-
-;; File
 (define-key evil-normal-state-map (kbd "C-w C-w") 'save-buffer-always)
+
+;; Eval
+(evil-leader/set-key "r" 'eval-region)
+(evil-leader/set-key "b" 'eval-buffer)
+(evil-leader/set-key "s" 'eval-last-sexp)
 
 ;; Version control
 (evil-leader/set-key "g" 'magit-status)

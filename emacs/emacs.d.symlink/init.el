@@ -46,6 +46,7 @@
 (require 'init-sessions)
 (require 'init-mmm)
 (require 'init-restclient)
+(require 'init-eshell)
 
 ;; Editing
 (require 'init-parens)
@@ -58,8 +59,9 @@
 (require 'init-yasnippet)
 (require 'init-move-text)
 
-;; Source control
+;; Projects
 (require 'init-git)
+(require 'init-projectile)
 
 ;; Languages
 (require 'init-css)
@@ -79,12 +81,7 @@
 ;; Locales
 (require 'init-locales)
 
+;; Local
 (require 'init-local)
-
-;; Get settings for currently logged in user
-; (setq user-settings-dir (concat user-emacs-directory "users/" user-login-name))
-; (add-to-list 'load-path user-settings-dir)
-; (when (file-exists-p user-settings-dir)
-;   (mapc 'load (directory-files user-settings-dir nil "^[^#].*el$")))
 
 (provide 'init)
