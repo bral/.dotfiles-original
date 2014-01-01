@@ -3,5 +3,3 @@ vim/bundle
 .cache
 elpa
 url
-/emacs/emacs.d.symlink/projectile-bookmarks.eld
-/.gitignore
