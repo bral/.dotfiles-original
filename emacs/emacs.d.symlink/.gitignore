@@ -7,8 +7,8 @@ undohist
 .places
 .mc-lists.el
 eshell/lastdir
-init/init-local.el
 cache
 projectile-bookmarks.eld
 \#!*
 .\#*
+init-local.el

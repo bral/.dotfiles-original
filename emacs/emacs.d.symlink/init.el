@@ -83,7 +83,6 @@
 (require 'init-locales)
 
 ;; Local
-(ignore-errors
-  (require 'init-local))
+(require 'init-local)
 
 (provide 'init)
