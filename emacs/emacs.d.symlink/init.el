@@ -47,6 +47,7 @@
 (require 'init-mmm)
 (require 'init-restclient)
 (require 'init-eshell)
+(require 'init-dash)
 
 ;; Editing
 (require 'init-parens)
@@ -82,6 +83,7 @@
 (require 'init-locales)
 
 ;; Local
-(require 'init-local)
+(ignore-errors
+  (require 'init-local))
 
 (provide 'init)
