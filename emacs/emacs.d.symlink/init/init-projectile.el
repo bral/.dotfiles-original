@@ -12,7 +12,7 @@
 (define-key projectile-mode-map (kbd "s-p r") 'projectile-replace)
 (define-key projectile-mode-map (kbd "s-p R") 'projectile-regenerate-tags)
 (define-key projectile-mode-map (kbd "s-p g") 'projectile-grep)
-(define-key projectile-mode-map (kbd "s-p c") 'projectile-run-command-in-root)
+(define-key projectile-mode-map (kbd "s-p c") 'projectile-compile-project)
 
 ;; (require 'derp)
 
