@@ -1,5 +1,8 @@
 (define-prefix-command (key-binding "\C-q"))
 
+(defun split-move-vertically()
+  (split-window-vertically))
+
 (global-set-key (kbd "C-q %") 'split-window-vertically)
 (global-set-key (kbd "C-q \"") 'split-window-horizontally)
 
