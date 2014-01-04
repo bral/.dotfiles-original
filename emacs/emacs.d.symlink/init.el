@@ -73,6 +73,7 @@
 (require 'init-markdown)
 (require 'init-mode-map)
 (require 'init-stylus)
+(require 'init-yaml)
 
 ;; Server
 (require 'server)
