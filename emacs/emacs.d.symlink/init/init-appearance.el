@@ -18,7 +18,7 @@
 (setq indicate-empty-lines t)
 
 ;; Make zooming affect frame instead of buffers
-;; (require-package 'zoom-frm)
+(require-package 'zoom-frm)
 
 ;; Show keystrokes in progress
 (setq echo-keystrokes 0.1)
@@ -27,5 +27,9 @@
 (require-package 'diminish)
 (eval-after-load "paredit" '(diminish 'paredit-mode))
 (eval-after-load "smartparens" '(diminish 'smartparens-mode))
+
+;; Zoom
+(global-set-key (kbd "s-=") 'zoom-all-frames-in)
+(global-set-key (kbd "s--") 'zoom-all-frames-out)
 
 (provide 'init-appearance)

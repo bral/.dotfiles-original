@@ -1,5 +1,6 @@
 vim/bundle
 *.private.*
-.cache
+*.cache
+*.elc
 elpa
 url

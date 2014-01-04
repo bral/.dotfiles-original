@@ -1,6 +1,6 @@
 (require-package 'projectile)
 
-(projectile-global-mode)
+(projectile-global-mode 1)
 
 (define-prefix-command (key-binding (kbd "s-p")))
 

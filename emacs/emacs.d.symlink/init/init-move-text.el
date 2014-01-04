@@ -6,7 +6,7 @@
 ;; (move-text-default-bindings)
 ;;
 ;; Custom bindings example:
-;; (global-set-key [M-S-p] 'move-text-up)
-;; (global-set-key [M-S-n] 'move-text-down)
+;; (global-set-key (kbd "M-P") 'move-text-up)
+;; (global-set-key (kbd "M-N") 'move-text-down)
 
 (provide 'init-move-text)

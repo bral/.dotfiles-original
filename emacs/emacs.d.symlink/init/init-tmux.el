@@ -3,8 +3,13 @@
 (defun split-move-vertically()
   (split-window-vertically))
 
-(global-set-key (kbd "C-q %") 'split-window-vertically)
-(global-set-key (kbd "C-q \"") 'split-window-horizontally)
+;; (global-set-key (kbd "C-q \"") '(lambda ()
+;;				       (interactive)
+;;				       (split-window-vertically)
+;;				       (evil-window-down)))
+
+(global-set-key (kbd "C-q \"") 'split-window-vertically)
+(global-set-key (kbd "C-q %") 'split-window-horizontally)
 
 (global-set-key (kbd "C-q h") 'evil-window-left)
 (global-set-key (kbd "C-q l") 'evil-window-right)

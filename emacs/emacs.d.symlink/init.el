@@ -62,7 +62,7 @@
 
 ;; Projects
 (require 'init-git)
-(require 'init-projectile)
+(require 'init-project)
 
 ;; Languages
 (require 'init-css)
