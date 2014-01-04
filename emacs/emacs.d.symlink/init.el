@@ -48,6 +48,7 @@
 (require 'init-restclient)
 (require 'init-eshell)
 (require 'init-dash)
+(require 'init-golden-ratio)
 
 ;; Editing
 (require 'init-parens)
