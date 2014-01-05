@@ -1,3 +1,3 @@
-(global-set-key (kbd "s-;") 'shell-command)
+(global-set-key (kbd "A-;") 'shell-command)
 
 (provide 'init-shell)

@@ -4,7 +4,23 @@
 (evil-mode 1)
 
 (require-package 'surround)
-(setq-default global-surround-mode 1)
+(global-surround-mode 1)
+; (setq-default surround-pairs-alist
+;               '((?\( . ("(" . ")"))
+;                 (?\[ . ("[" . "]"))
+;                 (?\{ . ("{" . "}"))
+
+;                 (?\) . ("( " . " )"))
+;                 (?\] . ("[ " . " ]"))
+;                 (?\} . ("{ " . " }"))
+
+;                 (?# . ("#{" . "}"))
+;                 (?b . ("(" . ")"))
+;                 (?B . ("{" . "}"))
+;                 (?> . ("<" . ">"))
+;                 (?t . surround-read-tag)
+;                 (?< . surround-read-tag)
+;                 (?f . surround-function)))
 
 (require-package 'evil-leader)
 (global-evil-leader-mode)
@@ -58,6 +74,8 @@
   (end-of-line)
   (newline)
   (indent-for-tab-command)
+  (beginning-of-line)
+  (delete-trailing-whitespace)
   (jump-to-register 1))
 
 (defun open-line-above ()
@@ -67,6 +85,8 @@
   (newline)
   (forward-line -1)
   (indent-for-tab-command)
+  (beginning-of-line)
+  (delete-trailing-whitespace)
   (jump-to-register 1))
 
 (define-key evil-normal-state-map "[ " 'open-line-above)
@@ -102,6 +122,12 @@
 (evil-leader/set-key "r" 'eval-region)
 (evil-leader/set-key "b" 'eval-buffer)
 (evil-leader/set-key "s" 'eval-last-sexp)
+
+;; Lambda
+(define-key evil-insert-state-map (kbd "A-l") (λ (insert "\u03bb")))
+(define-key evil-normal-state-map (kbd "A-l") (λ (insert "\u03bb")))
+
+; (define-key evil-normal-state-map (kbd "Q") (λ (evil-execute-macro "q"))
 
 ;; Version control
 (evil-leader/set-key "g" 'magit-status)

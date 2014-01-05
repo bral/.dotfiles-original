@@ -4,19 +4,19 @@ config nudgePercentOf screenSize
 config resizePercentOf screenSize
 
 # Resize Bindings
-bind h:ctrl;alt;cmd      resize -10% +0
-bind j:ctrl;alt;cmd      resize +0   +10%
-bind k:ctrl;alt;cmd      resize +0   -10%
-bind l:ctrl;alt;cmd      resize +10% +0
+bind h:ctrl;alt      resize -10% +0
+bind j:ctrl;alt      resize +0   +10%
+bind k:ctrl;alt      resize +0   -10%
+bind l:ctrl;alt      resize +10% +0
 
-bind pad7:ctrl;alt;cmd resize -10% -10%
-bind pad8:ctrl;alt;cmd resize +0% -10%
-bind pad9:ctrl;alt;cmd resize +10% -10%
-bind pad6:ctrl;alt;cmd resize +10% +0%
-bind pad3:ctrl;alt;cmd resize +10% +10%
-bind pad2:ctrl;alt;cmd resize +0% +10%
-bind pad1:ctrl;alt;cmd resize -10% +10%
-bind pad4:ctrl;alt;cmd resize -10% +0%
+bind pad7:ctrl;alt resize -10% -10%
+bind pad8:ctrl;alt resize +0% -10%
+bind pad9:ctrl;alt resize +10% -10%
+bind pad6:ctrl;alt resize +10% +0%
+bind pad3:ctrl;alt resize +10% +10%
+bind pad2:ctrl;alt resize +0% +10%
+bind pad1:ctrl;alt resize -10% +10%
+bind pad4:ctrl;alt resize -10% +0%
 
 # Push Bindings
 bind h:ctrl;cmd  push left  bar-resize:screenSizeX/2
@@ -54,10 +54,14 @@ bind pad4:shift;alt nudge -10% +0%
 bind 1:ctrl;alt         throw 0 resize
 bind 2:ctrl;alt         throw 1 resize
 bind 3:ctrl;alt         throw 2 resize
-bind h:ctrl;shift;alt;cmd throw left  resize
-bind j:ctrl;shift;alt;cmd throw down  resize
-bind k:ctrl;shift;alt;cmd throw up    resize
-bind l:ctrl;shift;alt;cmd throw right resize
+/* bind h:ctrl;shift;alt;cmd throw left  resize */
+/* bind j:ctrl;shift;alt;cmd throw down  resize */
+/* bind k:ctrl;shift;alt;cmd throw up    resize */
+/* bind l:ctrl;shift;alt;cmd throw right resize */
+/* bind left:ctrl;alt;cmd throw left  resize */
+/* bind down:ctrl;alt;cmd throw down  resize */
+/* bind up:ctrl;alt;cmd throw up    resize */
+/* bind right:ctrl;alt;cmd throw right resize */
 
 bind pad4:ctrl;shift;alt;cmd throw left  resize
 bind pad6:ctrl;shift;alt;cmd throw right resize

@@ -6,4 +6,7 @@
 ;; Map 'RET' to newline + indent
 (global-set-key (kbd "RET") 'newline-and-indent)
 
+;; Comment like Sublime Text
+(define-key mac-key-mode-map [(alt /)] 'whole-line-or-region-comment-dwim)
+
 (provide 'init-bindings)

@@ -22,8 +22,8 @@
   (with-current-buffer (get-buffer buf)
     (pop-to-buffer (current-buffer)))))
 
-(global-set-key (kbd "H-r") 'open-http-buffer)
-(global-set-key (kbd "s-r") 'open-http-buffer)
+(global-set-key (kbd "A-r") 'open-http-buffer)
+(global-set-key (kbd "A-R") 'open-http-buffer)
 
 (defun open-link-in-rest-client(&optional event)
   "Opens a link in the rest client"

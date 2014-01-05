@@ -17,38 +17,47 @@
 (require 'init-utils)
 (require 'init-elpa)
 (require 'init-exec-path)
-(require 'init-custom)
+(require 'init-custom-generate)
+
+;; Platform
 (when *is-a-mac*
   (require 'init-mac))
 
-;; History and backup
+;; Recovery
 (require 'init-undohist)
 (require 'init-backup)
+(require 'init-places)
+(require 'init-sessions)
 
 ;; Bindings
+(require 'init-caps-lock)
 (require 'init-bindings)
 (require 'init-moveline)
 
-;; Appearance
+;; Interface
 (require 'init-themes)
 (require 'init-maxframe)
 (require 'init-uniquify)
+(require 'init-linenumbers)
 (require 'init-appearance)
 (require 'init-urls)
+(require 'init-ido)
+(require 'init-highlight-escape-sequences)
 
 ;; Misc
-(require 'init-ido)
-(require 'init-places)
-(require 'init-flycheck)
+;; (require 'init-flycheck)
 (require 'init-hippie-expand)
 ;; (require 'init-autocomplete)
-(require 'init-windows)
-(require 'init-sessions)
 (require 'init-mmm)
 (require 'init-restclient)
 (require 'init-eshell)
+(require 'init-shell)
 (require 'init-dash)
+
+;; Layout
+(require 'init-window-manage)
 (require 'init-golden-ratio)
+(require 'init-screen)
 
 ;; Editing
 (require 'init-parens)
@@ -56,25 +65,30 @@
 (require 'init-undo-tree)
 (require 'init-whitespace)
 (require 'init-wholeline)
-(require 'init-linenumbers)
 (require 'init-editing)
-(require 'init-yasnippet)
+;; (require 'init-yasnippet)
 (require 'init-move-text)
+(require 'init-smartparens)
 
 ;; Projects
 (require 'init-git)
 (require 'init-project)
 
 ;; Languages
+(require 'init-javascript)
 (require 'init-css)
 (require 'init-elisp)
 (require 'init-erlang)
 (require 'init-jade)
-(require 'init-javascript)
 (require 'init-markdown)
-(require 'init-mode-map)
 (require 'init-stylus)
 (require 'init-yaml)
+
+;; Autoload
+(require 'init-autoload)
+
+;; Mode-mappings
+(require 'init-mode-map)
 
 ;; Server
 (require 'server)
