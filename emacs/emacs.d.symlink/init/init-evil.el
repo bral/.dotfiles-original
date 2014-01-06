@@ -5,22 +5,22 @@
 
 (require-package 'surround)
 (global-surround-mode 1)
-; (setq-default surround-pairs-alist
-;               '((?\( . ("(" . ")"))
-;                 (?\[ . ("[" . "]"))
-;                 (?\{ . ("{" . "}"))
+(setq-default surround-pairs-alist
+  '((?\( . ("(" . ")"))
+    (?\[ . ("[" . "]"))
+    (?\{ . ("{" . "}"))
 
-;                 (?\) . ("( " . " )"))
-;                 (?\] . ("[ " . " ]"))
-;                 (?\} . ("{ " . " }"))
+    (?\) . ("( " . " )"))
+    (?\] . ("[ " . " ]"))
+    (?\} . ("{ " . " }"))
 
-;                 (?# . ("#{" . "}"))
-;                 (?b . ("(" . ")"))
-;                 (?B . ("{" . "}"))
-;                 (?> . ("<" . ">"))
-;                 (?t . surround-read-tag)
-;                 (?< . surround-read-tag)
-;                 (?f . surround-function)))
+    (?# . ("#{" . "}"))
+    (?b . ("(" . ")"))
+    (?B . ("{" . "}"))
+    (?> . ("<" . ">"))
+    (?t . surround-read-tag)
+    (?< . surround-read-tag)
+    (?f . surround-function)))
 
 (require-package 'evil-leader)
 (global-evil-leader-mode)
@@ -127,7 +127,8 @@
 (define-key evil-insert-state-map (kbd "A-l") (λ (insert "\u03bb")))
 (define-key evil-normal-state-map (kbd "A-l") (λ (insert "\u03bb")))
 
-; (define-key evil-normal-state-map (kbd "Q") (λ (evil-execute-macro "q"))
+;; Jump from `init-window-manager.el'
+(window-evil-bindings)
 
 ;; Version control
 (evil-leader/set-key "g" 'magit-status)
