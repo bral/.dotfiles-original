@@ -18,7 +18,41 @@
 (require-package 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
-;; Comment like Sublime Text
+;; Sublime Textish
+;; -- comment
 (global-set-key (kbd "A-/") 'comment-or-uncomment-region)
+;; -- indent
+
+;; (defun indent-line-once ()
+;;   (interactive)
+;;   (point-to-register 1)
+;;   (beginning-of-line)
+;;     (indent-line-to 2)
+;;   (jump-to-register 1))
+
+;; (defun my-indent-region (N)
+;;   (interactive "p")
+;;   (if (use-region-p)
+;;       (progn (indent-rigidly (region-beginning) (region-end) (* N 2))
+;;              (setq deactivate-mark nil))
+;;     (λ
+;;       (interactive)
+;;       (point-to-register 1)
+;;       (beginning-of-line)
+;;       (set-mark-command)
+;;       (end-of-line)
+;;       (indent-rigidly)
+;;       (jump-to-register 1))))
+
+;;     ;; (self-insert-command N)))
+
+;; (define-key mac-key-mode-map [(alt \])] 'indent-line-once)
+
+   (global-set-key (kbd "A-[") 'indent-line-once)
+   (global-set-key (kbd "A-[") 'indent-line-once)
+   (global-set-key (kbd "A-[") 'indent-line-once)
+   (global-set-key (kbd "A-[") 'indent-line-once)
+
+
 
 (provide 'init-editing)

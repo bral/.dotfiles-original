@@ -23,4 +23,8 @@
 ;; Allow the same buffer to be open in different frames
 (setq ido-default-buffer-method 'selected-window)
 
+;; Ignore files
+(add-to-list 'completion-ignored-extensions ".DS_Store")
+(add-to-list 'completion-ignored-extensions ".ecl")
+
 (provide 'init-ido)

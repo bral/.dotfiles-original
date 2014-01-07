@@ -5,22 +5,23 @@
 
 (require-package 'surround)
 (global-surround-mode 1)
-(setq-default surround-pairs-alist
-  '((?\( . ("(" . ")"))
-    (?\[ . ("[" . "]"))
-    (?\{ . ("{" . "}"))
 
-    (?\) . ("( " . " )"))
-    (?\] . ("[ " . " ]"))
-    (?\} . ("{ " . " }"))
+;; (setq-default surround-pairs-alist
+;;   '((?\( . ("(" . ")"))
+;;     (?\[ . ("[" . "]"))
+;;     (?\{ . ("{" . "}"))
 
-    (?# . ("#{" . "}"))
-    (?b . ("(" . ")"))
-    (?B . ("{" . "}"))
-    (?> . ("<" . ">"))
-    (?t . surround-read-tag)
-    (?< . surround-read-tag)
-    (?f . surround-function)))
+;;     (?\) . ("( " . " )"))
+;;     (?\] . ("[ " . " ]"))
+;;     (?\} . ("{ " . " }"))
+
+;;     (?# . ("#{" . "}"))
+;;     (?b . ("(" . ")"))
+;;     (?B . ("{" . "}"))
+;;     (?> . ("<" . ">"))
+;;     (?t . surround-read-tag)
+;;     (?< . surround-read-tag)
+;;     (?f . surround-function)))
 
 (require-package 'evil-leader)
 (global-evil-leader-mode)
