@@ -24,4 +24,9 @@
   :irrelevant-files ("node_modules/")
   :tasks (("test" :shell "npm test")))
 
+(require-package 'project-explorer)
+
+;; (define-key projectile-mode-map (kbd "A-p g") 'projectile-grep)
+;; (define-key projectile-mode-map (kbd "A-p g") 'projectile-grep)
+
 (provide 'init-project)

@@ -33,4 +33,9 @@
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 
+;; Snippets
+(autoload 'snippet-mode "snippet-mode")
+(add-to-list 'auto-mode-alist '("yasnippet/snippets" . snippet-mode))
+(add-to-list 'auto-mode-alist '("\\.yasnippet$" . snippet-mode))
+
 (provide 'init-mode-map)

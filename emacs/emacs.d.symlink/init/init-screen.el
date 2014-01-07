@@ -1636,15 +1636,20 @@ Use \\[toggle-read-only] to permit editing."
     (elscreen-set-prefix-key prefix-key)))
 
 ;; (provide 'elscreen)
-
 ;;; elscreen.el ends here
 
-;; (require-package 'elscreen)
 (elscreen-start)
 (define-key mac-key-mode-map [(alt t)] 'elscreen-create)
 (define-key mac-key-mode-map [(alt })] 'elscreen-next)
 (define-key mac-key-mode-map [(alt {)] 'elscreen-previous)
-(define-key mac-key-mode-map [(alt w)] 'elscreen-kill)
 (define-key mac-key-mode-map [(alt d)] 'elscreen-split)
+(define-key mac-key-mode-map [(alt w)]
+  (λ (if (elscreen-one-screen-p)
+         (delete-frame)
+         (elscreen-kill))))
+
+(require-package 'zoom-frm)
+(define-key mac-key-mode-map [(alt -)] 'zoom-frm-out)
+(define-key mac-key-mode-map [(alt =)] 'zoom-frm-in)
 
 (provide 'init-screen)

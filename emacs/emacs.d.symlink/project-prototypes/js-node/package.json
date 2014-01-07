@@ -1,0 +1,10 @@
+{
+  "name": "__project-name__",
+  "version": "0.1.0",
+  "description": "__description__",
+  "author": { "name": "Michael Vanasse" },
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}

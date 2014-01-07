@@ -133,4 +133,10 @@
 ;; Version control
 (evil-leader/set-key "g" 'magit-status)
 
+;; (define-key evil-normal-state-map (kbd "C-w C-w") (save-unmodified))
+
+;; (require-package 'evil-paredit)
+;; (require 'evil-paredit)
+;; (add-hook 'emacs-lisp-mode-hook 'evil-paredit-mode)
+
 (provide 'init-evil)

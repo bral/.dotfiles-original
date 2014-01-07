@@ -21,7 +21,7 @@
 (setq-default js2-allow-rhino-new-expr-initializer nil)
 (setq-default js2-auto-indent-p nil)
 (setq-default js2-enter-indents-newline nil)
-(setq-default js2-global-externs '("module" "require" "buster" "sinon" "assert" "refute" "setTimeout" "clearTimeout" "setInterval" "clearInterval" "location" "__dirname" "console" "JSON"))
+(setq-default js2-global-externs '("module" "require" "buster" "sinon" "assert" "refute" "setTimeout" "clearTimeout" "setInterval" "clearInterval" "location" "__dirname" "console" "JSON" "describe" "it" "exports" "assert"))
 (setq-default js2-idle-timer-delay 0.1)
 (setq-default js2-indent-on-enter-key nil)
 (setq-default js2-mirror-mode nil)
@@ -285,5 +285,10 @@
                     (:else 0)))))
     (unless first-line
       (indent-line-to offset))))
+
+;; (define-key caps-lock-bind "?"
+  ;; (λ (if (js2-mode t)
+         ;; (js2-mode-toggle-hide-comments)
+       ;; (hide-show-comments-toggle))))
 
 (provide 'init-javascript)

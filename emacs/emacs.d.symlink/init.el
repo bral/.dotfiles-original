@@ -46,15 +46,19 @@
 
 ;; Misc
 ;; (require 'init-flycheck)
-(require 'init-hippie-expand)
 ;; (require 'init-autocomplete)
+(require 'init-hippie-expand)
 (require 'init-mmm)
 (require 'init-restclient)
-(require 'init-eshell)
-(require 'init-shell)
 (require 'init-dash)
 
+;; Shells
+(require 'init-eshell)
+(require 'init-shell)
+(require 'init-quickrun)
+
 ;; Layout
+(require 'init-frame-manage)
 (require 'init-window-manage)
 (require 'init-golden-ratio)
 (require 'init-screen)
@@ -66,7 +70,7 @@
 (require 'init-whitespace)
 (require 'init-wholeline)
 (require 'init-editing)
-;; (require 'init-yasnippet)
+(require 'init-yasnippet)
 (require 'init-move-text)
 (require 'init-smartparens)
 

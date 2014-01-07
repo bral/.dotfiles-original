@@ -11,4 +11,10 @@
      ,@body))
 (global-set-key (kbd "A-l") (λ (insert "\u03bb")))
 
+;; Save anyway
+(defun save-unmodified-buffer ()
+  "This saves the buffer, even when unmodified. Useful for file watchers."
+  (λ (set-buffer-modified-p t)
+     (save-buffer)))
+
 (provide 'init-utils)
