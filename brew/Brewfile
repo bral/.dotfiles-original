@@ -12,7 +12,7 @@ tap homebrew/dupes
 install homebrew/dupes/grep
 
 install zsh
-install emacs
+install emacs-mac
 install ack
 install git
 install tree
