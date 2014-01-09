@@ -27,15 +27,12 @@
 (define-key yas-keymap (kbd "C-a") 'yas/goto-start-of-active-field)
 
 ;; No dropdowns
-;; (setq yas-prompt-functions '(yas/ido-prompt yas/completing-prompt))
+(setq yas-prompt-functions '(yas/ido-prompt yas/completing-prompt))
 
 ;; No need to be so verbose
-;; (setq yas-verbosity 1)
+(setq yas-verbosity 1)
 
 ;; Wrap around region
 (setq yas-wrap-around-region t)
-
-;; TODO load in minors modes
-(yas-global-mode 1)
 
 (provide 'init-yasnippet)

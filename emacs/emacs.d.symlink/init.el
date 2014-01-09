@@ -70,9 +70,12 @@
 (require 'init-whitespace)
 (require 'init-wholeline)
 (require 'init-editing)
-(require 'init-yasnippet)
 (require 'init-move-text)
 (require 'init-smartparens)
+
+;; Snippets
+(require 'init-yasnippet)
+(require 'init-yasnippet-helpers)
 
 ;; Projects
 (require 'init-git)

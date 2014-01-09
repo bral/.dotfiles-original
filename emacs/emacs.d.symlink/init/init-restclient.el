@@ -39,7 +39,7 @@
 		(pop-to-buffer (current-buffer)))
 	    (error "No e-mail address or URL found"))))))
 
-(global-set-key [S-s-mouse-1] 'open-link-in-rest-client)
+(global-set-key [A-S-mouse-1] 'open-link-in-rest-client)
 
 (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
 

@@ -37,7 +37,7 @@
 (setq-default js2-strict-missing-semi-warning nil)
 (setq-default js2-strict-trailing-comma-warning t) ;; jshint does not warn about this now for some reason
 
-(add-hook 'js2-mode-hook (λ (flycheck-mode 1)))
+;; (add-hook 'js2-mode-hook (lambda () (flycheck-mode 1)))
 
 (require-package 'js2-refactor)
 (js2r-add-keybindings-with-prefix "C-c C-m")
@@ -286,9 +286,9 @@
     (unless first-line
       (indent-line-to offset))))
 
-;; (define-key caps-lock-bind "?"
-  ;; (λ (if (js2-mode t)
-         ;; (js2-mode-toggle-hide-comments)
-       ;; (hide-show-comments-toggle))))
+;; Move lines better
+(eval-after-load 'js2r-mode
+  '(λ (define-key js2-mode-map (kbd "C-J") 'js2r-move-line-down)
+      (define-key js2-mode-map (kbd "C-K") 'js2r-move-line-up)))
 
 (provide 'init-javascript)

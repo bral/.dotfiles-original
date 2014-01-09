@@ -123,6 +123,7 @@
 (evil-leader/set-key "r" 'eval-region)
 (evil-leader/set-key "b" 'eval-buffer)
 (evil-leader/set-key "s" 'eval-last-sexp)
+(evil-leader/set-key "S" 'eval-last-sexp)
 
 ;; Lambda
 (define-key evil-insert-state-map (kbd "A-l") (λ (insert "\u03bb")))
