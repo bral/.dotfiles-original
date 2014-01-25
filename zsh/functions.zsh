@@ -1,6 +1,15 @@
+
 function lsr () {
   clear;
-  ls -oa
+  gls  \
+    -go \
+    -l \
+    --almost-all \
+    --human-readable \
+    --color \
+    --group-directories-first \
+    --ignore="#*" \
+    --ignore=".DS_Store"
 }
 
 function cd () {

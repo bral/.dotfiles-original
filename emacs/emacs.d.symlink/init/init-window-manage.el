@@ -44,8 +44,8 @@
 ;; Minimize / maximize
 (global-set-key (caps-lock-bind "w") 'delete-window)
 (global-set-key (caps-lock-bind "-") 'delete-other-windows)
-(global-set-key (caps-lock-bind "=")
-                (λ (golden-ratio-disable)
-                   (balance-windows)))
+;; (global-set-key (caps-lock-bind "=")
+;;                 (λ (golden-ratio-disable)
+;;                    (balance-windows)))
 
 (provide 'init-window-manage)

@@ -129,11 +129,44 @@
 (define-key evil-insert-state-map (kbd "A-l") (λ (insert "\u03bb")))
 (define-key evil-normal-state-map (kbd "A-l") (λ (insert "\u03bb")))
 
-;; Jump from `init-window-manager.el'
+;; Jump from init-window-manager.el
 (window-evil-bindings)
 
 ;; Version control
 (evil-leader/set-key "g" 'magit-status)
+
+
+(add-hook 'js2-mode-hook
+  (lambda ()
+    ;; Scan the file for nested code blocks
+    (imenu-add-menubar-index)
+    ;; Activate the folding mode
+    (hs-minor-mode t)))
+
+(define-key evil-normal-state-map (kbd "A-.") 'hs-show-block)
+(define-key evil-normal-state-map (kbd "A->") 'hs-show-all)
+(define-key evil-normal-state-map (kbd "A-,") 'hs-hide-block)
+(define-key evil-normal-state-map (kbd "A-<") 'hs-hide-all)
+
+(defun js2-mode-hide-all ()
+  (interactive)
+  (js2-mode-hide-functions)
+  (js2-mode-hide-comments)
+  (js2-mode-hide-elements)
+  )
+
+(eval-after-load 'js2r-mode
+  '(lambda ()
+     ;; Move lines better
+    (define-key evil-normal-state-map (kbd "C-J") 'js2r-move-line-down)
+    (define-key evil-normal-state-map (kbd "C-K") 'js2r-move-line-up))
+
+    (evil-leader/set-key "f" 'js2-mode-toggle-hide-functions)
+    (evil-leader/set-key "c" 'js2-mode-toggle-hide-comments)
+    (evil-leader/set-key "e" 'js2-mode-toggle-elements)
+    (evil-leader/set-key "s" 'js2-mode-show-all)
+    (evil-leader/set-key "h" 'js2-mode-hide-all)
+    )
 
 ;; (define-key evil-normal-state-map (kbd "C-w C-w") (save-unmodified))
 

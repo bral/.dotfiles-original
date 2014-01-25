@@ -90,6 +90,7 @@
 (require 'init-markdown)
 (require 'init-stylus)
 (require 'init-yaml)
+(require 'init-rework)
 
 ;; Autoload
 (require 'init-autoload)

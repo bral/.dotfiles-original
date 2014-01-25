@@ -214,7 +214,7 @@
 
 (require-package 'tern)
 (require-package 'tern-auto-complete)
-(add-hook 'js2-mode-hook (λ (tern-mode t)))
+(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
 (eval-after-load 'tern
    '(progn
       (require 'tern-auto-complete)
@@ -285,10 +285,5 @@
                     (:else 0)))))
     (unless first-line
       (indent-line-to offset))))
-
-;; Move lines better
-(eval-after-load 'js2r-mode
-  '(λ (define-key js2-mode-map (kbd "C-J") 'js2r-move-line-down)
-      (define-key js2-mode-map (kbd "C-K") 'js2r-move-line-up)))
 
 (provide 'init-javascript)

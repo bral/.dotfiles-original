@@ -4,6 +4,8 @@
 
 (define-prefix-command (key-binding (kbd "s-p")))
 
+(global-set-key (kbd "s-p") 'projectile-commander)
+
 (define-key projectile-mode-map (kbd "s-p ?") 'projectile-commander)
 (define-key projectile-mode-map (kbd "s-p d") 'projectile-find-dir)
 (define-key projectile-mode-map (kbd "s-p p") 'projectile-switch-project)

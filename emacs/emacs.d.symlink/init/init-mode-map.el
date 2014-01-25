@@ -8,8 +8,10 @@
 ;; Jade and Stylus (sws = significant whitespace)
 (autoload 'sws-mode "sws-mode")
 (autoload 'jade-mode "jade-mode")
-(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
+(add-to-list 'auto-mode-alist '("\\.sl$" . stylus-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
+(add-to-list 'auto-mode-alist '("\\.styl$" . rework-mode))
+(add-to-list 'auto-mode-alist '("\\.css$" . rework-mode))
 
 ;; HTML
 (add-to-list 'auto-mode-alist '("\\.html\\'" . html-mode))
@@ -24,8 +26,9 @@
 ;; JavaScript
 (autoload 'js2-mode "js2-mode" nil t)
 (require-package 'js2-mode)
+(require-package 'json-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.json$" . javascript-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . json-mode))
 (add-to-list 'magic-mode-alist '("#!/usr/bin/env node" . js2-mode))
 
 ;; Markdown
