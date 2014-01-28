@@ -27,7 +27,8 @@
 (require 'init-undohist)
 (require 'init-backup)
 (require 'init-places)
-(require 'init-sessions)
+;; TODO stop this from asking to save desktop on quit
+;; (require 'init-sessions)
 
 ;; Bindings
 (require 'init-caps-lock)
@@ -64,24 +65,25 @@
 (require 'init-screen)
 
 ;; Editing
-(require 'init-parens)
+;; (require 'init-parens)
 (require 'init-multicursor)
 (require 'init-undo-tree)
 (require 'init-whitespace)
 (require 'init-wholeline)
 (require 'init-editing)
 (require 'init-move-text)
-(require 'init-smartparens)
+;; (require 'init-smartparens)
 
 ;; Snippets
 (require 'init-yasnippet)
 (require 'init-yasnippet-helpers)
 
 ;; Projects
-(require 'init-git)
+;; (require 'init-git)
 (require 'init-project)
 
 ;; Languages
+(require 'init-json)
 (require 'init-javascript)
 (require 'init-css)
 (require 'init-elisp)

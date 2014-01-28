@@ -1,9 +1,9 @@
 ;;; init-javascript.el --- tweak js2 settings -*- lexical-binding: t; -*-
 
-(require-package 'json-mode)
+;; (require-package 'json-mode)
 (when (>= emacs-major-version 24)
   (require-package 'js2-mode)
-  (require-package 'ac-js2))
+  ;; (require-package 'ac-js2))
 (require-package 'js-comint)
 (require-package 'rainbow-delimiters)
 
@@ -213,7 +213,7 @@
                        " *, *" t))
                 ))))
 
-(require 'json)
+;; (require 'json)
 
 (require-package 'tern)
 (require-package 'tern-auto-complete)
