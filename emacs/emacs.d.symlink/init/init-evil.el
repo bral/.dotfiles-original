@@ -107,10 +107,10 @@
 (define-key evil-insert-state-map (kbd "C-l") 'evil-forward-char)
 
 ;; Move line or region
-(define-key evil-visual-state-map (kbd "C-J") 'move-text-down)
-(define-key evil-normal-state-map (kbd "C-J") 'move-text-down)
-(define-key evil-visual-state-map (kbd "C-K") 'move-text-up)
-(define-key evil-normal-state-map (kbd "C-K") 'move-text-up)
+(define-key evil-visual-state-map (kbd "C-S-J") 'move-text-down)
+(define-key evil-normal-state-map (kbd "C-S-J") 'move-text-down)
+(define-key evil-visual-state-map (kbd "C-S-K") 'move-text-up)
+(define-key evil-normal-state-map (kbd "C-S-K") 'move-text-up)
 
 ;; Comments
 (define-key evil-normal-state-map (kbd "gc") 'comment-or-uncomment-region)
@@ -152,21 +152,21 @@
   (interactive)
   (js2-mode-hide-functions)
   (js2-mode-hide-comments)
-  (js2-mode-hide-elements)
+  (js2-mode-hide-element)
   )
 
-(eval-after-load 'js2r-mode
-  '(lambda ()
-     ;; Move lines better
-    (define-key evil-normal-state-map (kbd "C-J") 'js2r-move-line-down)
-    (define-key evil-normal-state-map (kbd "C-K") 'js2r-move-line-up))
+;; (eval-after-load 'js2r-mode
+;;   '(λ
+;;     ;; Move lines better
+;;     ;; (define-key evil-normal-state-map (kbd "C-J") 'js2r-move-line-down)
+;;     ;; (define-key evil-normal-state-map (kbd "C-K") 'js2r-move-line-up))
 
-    (evil-leader/set-key "f" 'js2-mode-toggle-hide-functions)
-    (evil-leader/set-key "c" 'js2-mode-toggle-hide-comments)
-    (evil-leader/set-key "e" 'js2-mode-toggle-elements)
-    (evil-leader/set-key "s" 'js2-mode-show-all)
-    (evil-leader/set-key "h" 'js2-mode-hide-all)
-    )
+;;     ;; (evil-leader/set-key "f" 'js2-mode-toggle-hide-functions)
+;;     ;; (evil-leader/set-key "c" 'js2-mode-toggle-hide-comments)
+;;     ;; (evil-leader/set-key "e" 'js2-mode-toggle-elements)
+;;     ;; (evil-leader/set-key "s" 'js2-mode-show-all)
+;;     ;; (evil-leader/set-key "h" 'js2-mode-hide-all)
+;;     )
 
 ;; (define-key evil-normal-state-map (kbd "C-w C-w") (save-unmodified))
 

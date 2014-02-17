@@ -20,10 +20,10 @@
 (require 'eproject)
 
 ;; NPM JavaScript project
-(define-project-type javascript-npm (generic)
-  (or (look-for "package.json")
-      (look-for "node_modules"))
-  :irrelevant-files ("node_modules/")
-  :tasks (("test" :shell "npm test")))
+;; (define-project-type javascript-npm (generic)
+;;   (or (look-for "package.json")
+;;       (look-for "node_modules"))
+;;   :irrelevant-files ("node_modules/")
+;;   :tasks (("test" :shell "npm test")))
 
 (provide 'init-project)
