@@ -24,7 +24,22 @@
 (setq-default js2-allow-rhino-new-expr-initializer nil)
 (setq-default js2-auto-indent-p nil)
 (setq-default js2-enter-indents-newline nil)
-(setq-default js2-global-externs '("module" "require" "buster" "sinon" "assert" "refute" "setTimeout" "clearTimeout" "setInterval" "clearInterval" "location" "__dirname" "console" "JSON" "describe" "it" "exports" "assert" "process"))
+(setq-default js2-global-externs '(
+  ;; javascript
+  "setTimeout" "clearTimeout" "setInterval" "clearInterval" "console" "JSON" "global"
+  ;; commonjs
+  "module" "require" "exports"
+  ;; node
+  "__filename" "__dirname" "process"
+  ;; browser
+  "location" "window"
+  ;; mocha
+  "it" "describe" "before" "after" "beforeEach" "afterEach"
+  ;; mocha tdd
+  "suite" "test" "setup" "teardown"
+  ;; meteor
+  "Meteor" "Template" "Session"
+  ))
 (setq-default js2-idle-timer-delay 0.1)
 (setq-default js2-indent-on-enter-key nil)
 (setq-default js2-mirror-mode nil)

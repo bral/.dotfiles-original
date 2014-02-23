@@ -2,7 +2,7 @@
 # name: module dependiencies
 # key: /m
 # --
-/*
+/**
  * Module dependencies.
  */
 $0
