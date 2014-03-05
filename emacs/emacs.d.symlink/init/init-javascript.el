@@ -30,7 +30,7 @@
   ;; commonjs
   "module" "require" "exports"
   ;; node
-  "__filename" "__dirname" "process"
+  "__filename" "__dirname" "process" "Buffer"
   ;; browser
   "location" "window"
   ;; mocha
