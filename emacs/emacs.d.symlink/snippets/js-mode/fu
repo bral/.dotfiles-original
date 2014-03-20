@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: simple function
+# key: fu
+# --
+function($1){
+	${2:// some stuff here...}
+}
