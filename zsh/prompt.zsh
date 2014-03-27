@@ -44,9 +44,8 @@ PRE_PROMT=
 PROMPT="%{$fg[blue]%}%~ $(git_prompt_info)
 %{$fg[white]%}λ %{$reset_color%}: "
 
-
 # Right Prompt
-RPROMPT='%{$fg_bold[black]%}%n@%m%{$reset_color%}'
+# RPROMPT='%{$fg_bold[black]%}%n@%m%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=" "

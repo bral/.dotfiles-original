@@ -22,3 +22,4 @@ alias .....='cd ../../../..'
 
 # misc
 alias fs="foreman start"
+alias add-path="PATH=$PATH:`pwd`"

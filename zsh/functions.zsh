@@ -6,7 +6,7 @@ function lsr () {
     -l \
     --almost-all \
     --human-readable \
-    --color \
+    --color=auto \
     --group-directories-first \
     --ignore="#*" \
     --ignore=".DS_Store"
