@@ -19,7 +19,9 @@ function mgw () {
   wa "mongroup --config ./.mon/mongroup.conf status"
 }
 
-alias mgr='mg start'
+alias mga='mg start'
 alias mgs='mg status'
 alias mgk='mg stop'
+alias mgp='mg stop'
 alias mgl='mg logf'
+alias mgr='mg restart'

@@ -9,7 +9,8 @@ function lsr () {
     --color=auto \
     --group-directories-first \
     --ignore="#*" \
-    --ignore=".DS_Store"
+    --ignore=".DS_Store" \
+    --ignore="*~"
 }
 
 function cd () {

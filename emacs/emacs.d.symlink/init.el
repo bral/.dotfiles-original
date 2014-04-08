@@ -9,6 +9,7 @@
 ;; Set up load path
 (add-to-list 'load-path user-emacs-directory)
 (add-to-list 'load-path (expand-file-name "init" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "tern/emacs" user-emacs-directory))
 
 (defconst *spell-check-support-enabled* nil)
 (defconst *is-a-mac* (eq system-type 'darwin))
@@ -45,6 +46,12 @@
 (require 'init-ido)
 (require 'init-highlight-escape-sequences)
 
+;; Layout
+(require 'init-frame-manage)
+(require 'init-window-manage)
+(require 'init-golden-ratio)
+(require 'init-screen)
+
 ;; Misc
 ;; (require 'init-flycheck)
 ;; (require 'init-autocomplete)
@@ -57,12 +64,6 @@
 (require 'init-eshell)
 (require 'init-shell)
 (require 'init-quickrun)
-
-;; Layout
-(require 'init-frame-manage)
-(require 'init-window-manage)
-(require 'init-golden-ratio)
-(require 'init-screen)
 
 ;; Editing
 ;; (require 'init-parens)

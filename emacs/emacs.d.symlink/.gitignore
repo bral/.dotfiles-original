@@ -13,3 +13,4 @@ projectile-bookmarks.eld
 .\#*
 init-local.el
 *.dat
+.custom.el

@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: program
+# key: program
+# --
+var program = require('commander');
+
+// cli
+program
+  .version(require('../package.json').version)
+  .option$0
+
+// parse args
+var args = program.parse(process.argv);

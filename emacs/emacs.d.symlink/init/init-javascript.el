@@ -25,6 +25,10 @@
 (setq-default js2-auto-indent-p nil)
 (setq-default js2-enter-indents-newline nil)
 (setq-default js2-global-externs '(
+                                   ;; fucking thing sucks
+                                   "#!/usr/bin/env node"
+  ;; es6
+  "yield"
   ;; javascript
   "setTimeout" "clearTimeout" "setInterval" "clearInterval" "console" "JSON" "global"
   ;; commonjs
@@ -74,6 +78,27 @@
   (λ (if (looking-at ";")
          (forward-char)
        (funcall 'self-insert-command 1))))
+
+
+;; js doc stuff
+
+(require-package 'js-doc)
+(require 'js-doc)
+
+(defun js-doc-maybe-new-block-line ()
+  (if
+    (js-doc-in-document-p (point))
+    (js-doc-newline-clean)
+    (newline-and-indent)))
+
+(defun js-doc-newline-clean ()
+  (interactive)
+  (insert "\n *") 
+  (delete-trailing-whitespace)
+  (insert " "))
+
+(define-key js2-mode-map (kbd "RET")
+  (λ (js-doc-maybe-new-block-line)))
 
 (defun js2-mode-inside-comment-or-string ()
   "Return non-nil if inside a comment or string."
@@ -230,9 +255,9 @@
 
 (require 'json)
 
-(require-package 'tern)
-(require-package 'tern-auto-complete)
-(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
+(add-to-list 'load-path (expand-file-name "tern/emacs" user-emacs-directory))
+(autoload 'tern-mode "tern.el" nil t)
+;;(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
 (eval-after-load 'tern
    '(progn
       (require 'tern-auto-complete)
@@ -296,6 +321,9 @@
                         (cjsp--indentation-of-html-line
                          (cjsp--eldoc-innards beg)
                          (cjsp--line-number-in-eldoc p beg))))
+
+                    ((looking-at "\/\*")
+                     (+ 1 (current-column)))
 
                     ((looking-at "/\\*")
                      (+ 1 (current-column)))
