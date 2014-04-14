@@ -9,6 +9,7 @@
 ;; Set up load path
 (add-to-list 'load-path user-emacs-directory)
 (add-to-list 'load-path (expand-file-name "init" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "elisp" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "tern/emacs" user-emacs-directory))
 
 (defconst *spell-check-support-enabled* nil)
@@ -91,9 +92,11 @@
 (require 'init-erlang)
 (require 'init-jade)
 (require 'init-markdown)
-(require 'init-stylus)
 (require 'init-yaml)
-(require 'init-rework)
+
+;; (require 'init-rework)
+
+;; (require 'styl-mode)
 
 ;; Autoload
 (require 'init-autoload)
