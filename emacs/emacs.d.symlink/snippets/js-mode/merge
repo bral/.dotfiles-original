@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: merge
+# key: merge
+# binding: direct-keybinding
+# --
+function merge(a,b){
+  for (var k in a) a[k] = b[k];
+  return b;$0
+}

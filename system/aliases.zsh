@@ -12,8 +12,7 @@ fi
 
 # navigation
 alias l="clear && ls -oa "
-alias er="clear && tree .. -L 3 -I 'node_moduels|components|build|target' --filelimit 12"
-alias c="clear; cd ./$1 && ls -oa"
+alias er="tree -I 'node_moduels|components|build|target' --filelimit"
 alias j=".. && l"
 alias k="- && l"
 
