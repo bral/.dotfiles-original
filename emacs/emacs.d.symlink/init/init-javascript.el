@@ -25,8 +25,10 @@
 (setq-default js2-auto-indent-p nil)
 (setq-default js2-enter-indents-newline nil)
 (setq-default js2-global-externs '(
-                                   ;; fucking thing sucks
-                                   "#!/usr/bin/env node" "node"
+  ;; node-webkit
+  "node"
+  ;; phantomjs
+  "phantom"
   ;; es6
   "yield"
   ;; javascript
@@ -85,25 +87,8 @@
 (require-package 'js-doc)
 (require 'js-doc)
 
-(defun js-doc-maybe-new-block-line ()
-  (if
-    (js-doc-in-document-p (point))
-    (js-doc-newline-clean)
-    (newline-and-indent)))
-
-(defun js-doc-newline-clean ()
-  (interactive)
-  (insert "\n *")
-  (delete-trailing-whitespace)
-  (insert " "))
-
-(define-key js2-mode-map (kbd "RET")
-  (λ (js-doc-maybe-new-block-line)))
-
 (require-package 'stylus-mode)
 (require 'stylus-mode)
-(define-key stylus-mode-map (kbd "RET")
-  (λ (js-doc-maybe-new-block-line)))
 
 (defun js2-mode-inside-comment-or-string ()
   "Return non-nil if inside a comment or string."

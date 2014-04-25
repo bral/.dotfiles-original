@@ -8,10 +8,12 @@
 ;; Jade and Stylus (sws = significant whitespace)
 (autoload 'sws-mode "sws-mode")
 (autoload 'jade-mode "jade-mode")
-(add-to-list 'auto-mode-alist '("\\.sl$" . stylus-mode))
+(autoload 'styl-mode "styl-mode")
+
+;; (add-to-list 'auto-mode-alist '("\\.sl$" . stylus-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
-(add-to-list 'auto-mode-alist '("\\.styl$" . rework-mode))
-(add-to-list 'auto-mode-alist '("\\.css$" . rework-mode))
+(add-to-list 'auto-mode-alist '("\\.styl$" . styl-mode))
+;; (add-to-list 'auto-mode-alist '("\\.css$" . rework-mode))
 
 ;; HTML
 (add-to-list 'auto-mode-alist '("\\.html\\'" . html-mode))

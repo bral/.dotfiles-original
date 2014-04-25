@@ -1,9 +1,11 @@
 ;;; rework-mode.el --- Major mode for editing rework (.css|.styl|*) files
 ;;;
-;;; URL: https://github.com/mvanasse/rework-mode
+;;; URL: https://github.com/mndvns/rework-mode
 ;;; Author: Michael Vanasse
 ;;; Package-Requires: ((sws-mode "0"))
 ;;;
+(require-package 'stylus-mode)
+
 (require 'font-lock)
 (require 'sws-mode)
 
@@ -108,7 +110,6 @@
   (use-local-map rework-mode-map))
 
 ;;;###autoload
-(add-to-list 'auto-mode-alist '("\\.styl$" . rework-mode))
 (add-to-list 'auto-mode-alist '("\\.css$" . rework-mode))
 
 (provide 'init-rework)

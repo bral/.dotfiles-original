@@ -1,0 +1,17 @@
+## Like the name says, curl and run cmds
+
+function curlinstall() {
+
+    printf "\033[00;36m  org/user \033[0m: ";
+    read git_org
+    printf "\033[00;36m      repo \033[0m: ";
+    read git_repo
+    printf "\033[00;36m  commands \033[0m: ";
+    read commands
+
+    mkdir /tmp/n && \
+      cd /tmp/n && \
+      curl -L# https://github.com/$git_org/$git_repo/archive/master.tar.gz | \
+      tar zx --strip 1 && \
+      ${commands} && rm -rf /tmp/$git_org$git_repo
+}

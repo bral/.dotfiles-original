@@ -1,0 +1,25 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("floobits-mndvns-480"
+ (filename . "~/floobits/share/mndvns/topnav-2/lib/index.styl")
+ (front-context-string . "      display bl")
+ (rear-context-string . "none\n    &-icon\n")
+ (position . 425))
+("floobits-namccool-469"
+ (filename . "~/floobits/share/mndvns/topnav-2/lib/index.styl")
+ (front-context-string . "      display bl")
+ (rear-context-string . "none\n    &-icon\n")
+ (position . 425))
+("floobits-namccool-475"
+ (filename . "~/floobits/share/mndvns/topnav-2/lib/index.styl")
+ (front-context-string . "      display bl")
+ (rear-context-string . "none\n    &-icon\n")
+ (position . 425))
+("floobits-mndvns-465"
+ (filename . "~/floobits/share/mndvns/topnav-2/example/index.jade")
+ (front-context-string)
+ (rear-context-string . "tem right-item 4")
+ (position . 794))
+)

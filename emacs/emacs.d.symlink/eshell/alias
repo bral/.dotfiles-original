@@ -1,13 +1,14 @@
-alias gcm git commit -m $*
-alias gl git log
-alias gpom git pull origin master $*
-alias gd git diff $*
-alias gs git status $*
-alias ..... cd ../../../..
-alias .... cd ../../..
-alias ... cd ../..
-alias .. cd ..
-alias k cd - $*
-alias j cd .. $*
-alias l ls -lah $*
+alias ga git add . -A $*
 alias gp git push origin master $*
+alias l ls -lah $*
+alias j cd .. $*
+alias k cd - $*
+alias .. cd ..
+alias ... cd ../..
+alias .... cd ../../..
+alias ..... cd ../../../..
+alias gs git status $*
+alias gd git diff $*
+alias gpom git pull origin master $*
+alias gl git log
+alias gcm git commit -m $*

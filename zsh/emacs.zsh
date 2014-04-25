@@ -1,4 +1,3 @@
-
 WHO=$(whoami)
 [ "$WHO" != "michael.vanasse" ] && exec su -c "$0 $*" - michael.vanasse
  
@@ -25,5 +24,3 @@ case $1 in
 	;;
  
 esac
- 
-# End }

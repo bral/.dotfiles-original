@@ -250,14 +250,14 @@ endif " }}}
 " Section: Visual {{{1
 " --------------------
 
-" if (&t_Co > 2 || has("gui_running")) && has("syntax")
-"   set background=dark
-"   let g:solarized_termcolors=16
-"   colorscheme solarized
-" endif " }}}
-" if filereadable(expand("~/.vimrc.local"))
-"   source ~/.vimrc.local
-" endif
+if (&t_Co > 2 || has("gui_running")) && has("syntax")
+  set background=dark
+  let g:solarized_termcolors=16
+  colorscheme solarized
+endif " }}}
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
 
 " TODO put these somewhere else
 autocmd BufWinEnter * silent! loadview 

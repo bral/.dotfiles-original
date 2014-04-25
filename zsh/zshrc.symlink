@@ -21,6 +21,8 @@ done
 autoload -U compinit
 compinit
 
+autoload -U zmv
+
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
 do
@@ -77,3 +79,5 @@ export NTP_DB_PASSWORD=project42
 
 # NTP API
 export NTP_URL=http://localhost:8000
+
+source $HOME/.zshprofile

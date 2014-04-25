@@ -22,4 +22,5 @@ alias .....='cd ../../../..'
 
 # misc
 alias fs="foreman start"
-alias add-path="PATH=$PATH:`pwd`"
+alias terminal-notifier="/Applications/terminal-notifier.app/Contents/MacOS/terminal-notifier"
+alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
