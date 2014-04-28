@@ -1,8 +1,7 @@
-autoload colors && colors
-
 # Adapted from code found at <https://gist.github.com/1712320>.
 
 setopt prompt_subst
+autoload -U colors && colors
 
 # Modify the colors and symbols in these variables as desired.
 GIT_PROMPT_SYMBOL="%{$fg[blue]%}±"
@@ -66,7 +65,8 @@ git_prompt_string() {
 }
 
 parse_git_branch () {
-  git branch 2> /dev/null | grep "*" | sed -e 's/* \(.*\)/ (\1)/g'
+  # Branch format found in regex at end of line
+  git branch 2> /dev/null | grep "*" | sed -e 's/* \(.*\)/\1/g'
 }
 
 function precmd() {
