@@ -29,26 +29,13 @@ git_dirty() {
   fi
 }
 
-# cloud symbol (in hex)
-cloud() {
-  echo "%{\xe2\x98\x81%G%}"
-}
-
-# nuclear symbol (in hex)
-nuclear() {
-  echo "%{\xe2\x98\xa2%G%}"
-}
-
 # Prompt
 PRE_PROMT=
 PROMPT="%{$fg[blue]%}%~ $(git_prompt_info)
 %{$fg[white]%}λ %{$reset_color%}: "
 
-# Right Prompt
-# RPROMPT='%{$fg_bold[black]%}%n@%m%{$reset_color%}'
-
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=" "
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[lightGrey]%} $(nuclear)"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[lightGrey]%} "
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 

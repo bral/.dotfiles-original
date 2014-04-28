@@ -3,7 +3,7 @@ export ZSH=$HOME/.dotfiles
 
 # all of our zsh files
 typeset -U config_files
-config_files=($ZSH/**/*.zsh)
+config_files=($ZSH/*/*.zsh)
 
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
@@ -45,39 +45,11 @@ pathdirs=(
   /usr/bin
   /usr/sbin
 )
+
 for dir in $pathdirs; do
   if [ -d $dir ]; then
     path+=$dir
   fi
 done
-
-# if [ -x /usr/local/bin/gdircolors ]; then
-#   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-# fi
-
-# export ZSH=$HOME/.oh-my-zsh
-# export UPDATE_ZSH_DAYS=13
-# DEFAULT_USER=mav
-# ZSH_THEME="agnoster"
-# DISABLE_AUTO_TITLE=true
-# COMPLETION_WAITING_DOTS="true"
-# setopt AUTO_CD
-# setopt AUTO_PUSHD
-
-# plugins=(brew git git-extras last-working-dir npm osx colored-man vundle wd web-search)
-
-# source $ZSH/oh-my-zsh.sh
-
-export TOKEN_HEX_KEY=81ca9f21318178682b924246f3812b99c61cb0a7989efabdd4254589b112ea9a
-export ADVRPT_DB_URL="jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=edwdev.octanner.com)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=edwdev))))"
-export ADVRPT_DB_USER=olap
-export ADVRPT_DB_PASSWORD=olap
-
-export NTP_DB_URL="jdbc:oracle:thin:@//ntpdev.octanner.com:1521/ntpdev"
-export NTP_DB_USER=p42
-export NTP_DB_PASSWORD=project42
-
-# NTP API
-export NTP_URL=http://localhost:8000
 
 source $HOME/.zshprofile

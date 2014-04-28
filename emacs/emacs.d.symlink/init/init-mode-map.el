@@ -10,7 +10,6 @@
 (autoload 'jade-mode "jade-mode")
 (autoload 'styl-mode "styl-mode")
 
-;; (add-to-list 'auto-mode-alist '("\\.sl$" . stylus-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 (add-to-list 'auto-mode-alist '("\\.styl$" . styl-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.css$" . rework-mode))
@@ -42,5 +41,9 @@
 (autoload 'snippet-mode "snippet-mode")
 (add-to-list 'auto-mode-alist '("yasnippet/snippets" . snippet-mode))
 (add-to-list 'auto-mode-alist '("\\.yasnippet$" . snippet-mode))
+
+;; Shell
+(add-to-list 'auto-mode-alist '("\\.sh$" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\\.zsh$" . shell-script-mode))
 
 (provide 'init-mode-map)

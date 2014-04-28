@@ -27,3 +27,25 @@ alias gbd="git branch -D"
 alias gpom="git pull origin master"
 alias gpo="git pull origin"
 alias gl="git log"
+
+function grao() {
+  if [[ -z $argv ]]; then
+    local repo=$(pwd | sed -E "s,(.+)(Projects/),,")
+    local url="https://github.com/$repo.git"
+    echo "adding remote $url"
+    git remote add origin $url
+  else
+    local repo=$0/$1
+    local url="https://github.com/$repo.git"
+    echo "adding remote $url"
+    git remote add origin $url
+  fi
+}
+
+function grro() {
+  if [[ -z $argv ]]; then
+    git remote remove origin
+  else
+    git remote remove origin $argv
+  fi
+}
