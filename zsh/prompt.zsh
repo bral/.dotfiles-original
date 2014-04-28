@@ -1,5 +1,8 @@
 # Adapted from code found at <https://gist.github.com/1712320>.
 
+# TODO git branch is only showing up when there is also a remote repository
+#      does not show when repository is local only :/
+
 setopt prompt_subst
 autoload -U colors && colors
 
@@ -65,11 +68,11 @@ git_prompt_string() {
 }
 
 parse_git_branch () {
-  # Branch format found in regex at end of line
+  # Branch format found in regex at end of line: [branch]
   git branch 2> /dev/null | grep "*" | sed -e 's/* \(.*\)/\1/g'
 }
 
 function precmd() {
   export PROMPT="%{$fg[blue]%}%~ $(git_prompt_string)
-  %{$fg[white]%}λ %{$reset_color%}: "
+%{$fg[white]%}λ %{$reset_color%}: "
 }
