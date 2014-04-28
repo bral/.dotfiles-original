@@ -30,7 +30,7 @@ git_dirty() {
 }
 
 # Prompt
-PRE_PROMT=
+PRE_PROMPT=""
 PROMPT="%{$fg[blue]%}%~ $(git_prompt_info)
 %{$fg[white]%}λ %{$reset_color%}: "
 
@@ -38,4 +38,3 @@ ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=" "
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[lightGrey]%} "
 ZSH_THEME_GIT_PROMPT_CLEAN=""
-
