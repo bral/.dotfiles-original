@@ -52,4 +52,4 @@ for dir in $pathdirs; do
   fi
 done
 
-source $HOME/.zshprofile
+# source $HOME/.zshprofile
