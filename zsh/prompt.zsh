@@ -1,7 +1,9 @@
 # Adapted from code found at <https://gist.github.com/1712320>.
 
-# TODO git branch is only showing up when there is also a remote repository
-#      does not show when repository is local only :/
+# TODO   git branch is only showing up when there is also a remote repository
+#        does not show when repository is local only :/
+#
+#        EDIT: Will show local branches, after initial commit.
 
 setopt prompt_subst
 autoload -U colors && colors
