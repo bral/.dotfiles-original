@@ -51,5 +51,3 @@ for dir in $pathdirs; do
     path+=$dir
   fi
 done
-
-# source $HOME/.zshprofile
