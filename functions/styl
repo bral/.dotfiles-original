@@ -1,0 +1,36 @@
+
+function styl(){
+
+  local STYLUS=
+  if [[ -d node_modules/.bin/stylus ]]; then
+    STYLUS=node_modules/.bin/stylus
+  else
+    STYLUS=/usr/local/bin/stylus
+  fi
+
+  local RENDER=
+  if [[ -f index.styl ]]; then
+    RENDER+=index.styl
+  fi
+
+  local INCLUDES=
+  if [[ -d node_modules ]]; then INCLUDES+=node_modules; fi
+
+  local CMD="$STYLUS"
+  local ARGS=""
+
+  if [[ ! -z $INCLUDES ]]; then ARGS+="--include $INCLUDES "; fi
+  if [[ ! -z $RENDER ]]; then ARGS+="$RENDER "; fi
+  if [[ ! -z $argv ]]; then ARGS+=$argv; fi
+
+  printf "\n  \033[30m%s \033[0m%s\n" $CMD $ARGS
+
+  if [[ -z $ARGS ]]; then
+    zsh -c "$CMD --help"
+  else
+    zsh -c "$CMD $ARGS"
+  fi
+
+  echo;
+
+}

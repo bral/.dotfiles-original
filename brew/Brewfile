@@ -22,6 +22,7 @@ install heroku-toolbelt
 install erlang
 install redis
 install riak
+install wget
 
 # Install homebrew-cask
 
