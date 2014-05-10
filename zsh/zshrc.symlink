@@ -51,3 +51,7 @@ for dir in $pathdirs; do
     path+=$dir
   fi
 done
+
+if [[ -f ~/.zshprofile ]]; then
+  source ~/.zshprofile
+fi
