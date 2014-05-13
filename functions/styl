@@ -9,8 +9,10 @@ function styl(){
   fi
 
   local RENDER=
-  if [[ -f index.styl ]]; then
-    RENDER+=index.styl
+  if [[ -f '._test.styl' ]]; then
+    RENDER+='._test.styl'
+  elif [[ -f index.styl ]]; then
+    RENDER+='index.styl'
   fi
 
   local INCLUDES=
