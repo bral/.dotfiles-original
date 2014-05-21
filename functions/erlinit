@@ -1,0 +1,99 @@
+# init an erlang project
+
+function erlinit() {
+    printf "\033[00;36m     project \033[0m: ";
+    read project
+    printf "\033[00;36m description \033[0m: ";
+    read description
+
+    mkdir -p src
+    mkdir -p test
+    curl -o erlang.mk https://raw.githubusercontent.com/extend/erlang.mk/master/erlang.mk
+
+    app="${project}_app"
+    sup="${project}_sup"
+
+    cat > Makefile <<EOF
+PROJECT = $project
+
+# dependencies
+
+DEPS = 
+
+include erlang.mk
+
+repl: all bin/start
+	@bin/start $project
+
+bin/start:
+	@mkdir -p bin
+	@curl https://gist.githubusercontent.com/camshaft/372cc332241ac95ae335/raw/start -o \$@
+	@chmod a+x \$@
+
+.PHONY: repl
+EOF
+
+  cat > src/$project.erl <<EOF
+-module($project).
+
+-export([start/0]).
+
+start() ->
+  ok = application:start($project).
+EOF
+
+  cat > src/$app.erl <<EOF
+-module($app).
+-behaviour(application).
+
+%% API.
+-export([start/2]).
+-export([stop/1]).
+
+%% API.
+
+start(_Type, _Args) ->
+  ${sup}:start_link().
+
+stop(_State) ->
+  ok.
+EOF
+
+  cat > src/$sup.erl <<EOF
+-module($sup).
+-behaviour(supervisor).
+
+%% API.
+-export([start_link/0]).
+
+%% supervisor.
+-export([init/1]).
+
+%% API.
+
+-spec start_link() -> {ok, pid()}.
+start_link() ->
+  supervisor:start_link({local, ?MODULE}, ?MODULE, []).
+
+%% supervisor.
+
+init([]) ->
+  Procs = [],
+  {ok, {{one_for_one, 10, 10}, Procs}}.
+EOF
+
+  cat > src/$project.app.src <<EOF
+{application, $project, [
+  {description, "$description"},
+  {vsn, "0.1.0"},
+  {modules, []},
+  {registered, []},
+  {applications, [
+    kernel,
+    stdlib
+  ]},
+  {mod, {$app, []}},
+  {env, []}
+]}.
+EOF
+}
