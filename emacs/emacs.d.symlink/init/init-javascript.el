@@ -38,7 +38,7 @@
   ;; node
   "__filename" "__dirname" "process" "Buffer"
   ;; browser
-  "location" "window"
+  "location" "window" "history"
   ;; mocha
   "it" "describe" "before" "after" "beforeEach" "afterEach"
   ;; mocha tdd
