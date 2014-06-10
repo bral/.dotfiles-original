@@ -9,6 +9,8 @@
 ;; Highlight matching parentheses when the point is on them.
 (show-paren-mode 1)
 
+(setq-default cursor-type 'bar)
+
 ;; Setup GUI mode
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
