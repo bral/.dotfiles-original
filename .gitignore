@@ -4,3 +4,4 @@ vim/bundle
 *.elc
 elpa
 url
+iterm/*.log
