@@ -11,8 +11,10 @@ install bash
 tap homebrew/dupes
 install homebrew/dupes/grep
 
-install zsh
+tap railwaycat/emacsmacport
 install emacs-mac
+
+install zsh
 install ack
 install git
 install tree
@@ -53,4 +55,3 @@ cask --appdir="/Applications" \
 # Remove outdated versions from the cellar
 
 cleanup
-
