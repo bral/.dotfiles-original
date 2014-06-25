@@ -90,6 +90,7 @@
 (require 'init-css)
 (require 'init-elisp)
 (require 'init-erlang)
+(require 'init-joxa)
 (require 'init-jade)
 (require 'init-markdown)
 (require 'init-yaml)
