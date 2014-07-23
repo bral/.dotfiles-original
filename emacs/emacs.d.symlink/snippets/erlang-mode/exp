@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: export
+# key: -e
+# --
+-export([${1:start}/${2:0}]).
+$0
