@@ -6,23 +6,6 @@
 (require-package 'surround)
 (global-surround-mode 1)
 
-;; (setq-default surround-pairs-alist
-;;   '((?\( . ("(" . ")"))
-;;     (?\[ . ("[" . "]"))
-;;     (?\{ . ("{" . "}"))
-
-;;     (?\) . ("( " . " )"))
-;;     (?\] . ("[ " . " ]"))
-;;     (?\} . ("{ " . " }"))
-
-;;     (?# . ("#{" . "}"))
-;;     (?b . ("(" . ")"))
-;;     (?B . ("{" . "}"))
-;;     (?> . ("<" . ">"))
-;;     (?t . surround-read-tag)
-;;     (?< . surround-read-tag)
-;;     (?f . surround-function)))
-
 (require-package 'evil-leader)
 (global-evil-leader-mode)
 (evil-leader/set-leader ",")
@@ -41,10 +24,6 @@
                                  (t default-color))))
                 (set-face-background 'mode-line (car color))
                 (set-face-foreground 'mode-line (cdr color))))))
-
-;; Move all elements of evil-emacs-state-modes to evil-motion-state-modes
-;; (setq evil-motion-state-modes (append evil-emacs-state-modes evil-motion-state-modes))
-;; (setq evil-emacs-state-modes nil)
 
 ;; Maybe exit
 (evil-define-command maybe-exit ()
@@ -154,24 +133,5 @@
   (js2-mode-hide-comments)
   (js2-mode-hide-element)
   )
-
-;; (eval-after-load 'js2r-mode
-;;   '(λ
-;;     ;; Move lines better
-;;     ;; (define-key evil-normal-state-map (kbd "C-J") 'js2r-move-line-down)
-;;     ;; (define-key evil-normal-state-map (kbd "C-K") 'js2r-move-line-up))
-
-;;     ;; (evil-leader/set-key "f" 'js2-mode-toggle-hide-functions)
-;;     ;; (evil-leader/set-key "c" 'js2-mode-toggle-hide-comments)
-;;     ;; (evil-leader/set-key "e" 'js2-mode-toggle-elements)
-;;     ;; (evil-leader/set-key "s" 'js2-mode-show-all)
-;;     ;; (evil-leader/set-key "h" 'js2-mode-hide-all)
-;;     )
-
-;; (define-key evil-normal-state-map (kbd "C-w C-w") (save-unmodified))
-
-;; (require-package 'evil-paredit)
-;; (require 'evil-paredit)
-;; (add-hook 'emacs-lisp-mode-hook 'evil-paredit-mode)
 
 (provide 'init-evil)
