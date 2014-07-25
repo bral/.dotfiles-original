@@ -1,7 +1,7 @@
 # .dotfiles
 
+  A sane, portable dotfiles configuration for *nix machines.
 
 ## Installation
 
-    (cd ~ && curl -L# https://github.com/mndvns/.dotfiles/archive/master.tar.gz | tar zx --strip 1 && ./bootstrap)
-
+    (mkdir ~/.dotfiles && cd ~/.dotfiles && curl -L# https://github.com/mndvns/.dotfiles/archive/master.tar.gz | tar zx --strip 1 && ./bootstrap)
