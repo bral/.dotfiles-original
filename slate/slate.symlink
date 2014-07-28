@@ -59,26 +59,9 @@ bind pad4:shift;alt nudge -5% +0%
 bind 1:ctrl;alt         throw 0 resize
 bind 2:ctrl;alt         throw 1 resize
 bind 3:ctrl;alt         throw 2 resize
-/* bind h:ctrl;shift;alt;cmd throw left  resize */
-/* bind j:ctrl;shift;alt;cmd throw down  resize */
-/* bind k:ctrl;shift;alt;cmd throw up    resize */
-/* bind l:ctrl;shift;alt;cmd throw right resize */
-/* bind left:ctrl;alt;cmd throw left  resize */
-/* bind down:ctrl;alt;cmd throw down  resize */
-/* bind up:ctrl;alt;cmd throw up    resize */
-/* bind right:ctrl;alt;cmd throw right resize */
 
 bind pad4:ctrl;shift;alt;cmd throw left  resize
 bind pad6:ctrl;shift;alt;cmd throw right resize
-
-
-# Focus Bindings
-# bind h:cmd     focus left
-# bind j:cmd     focus down
-# bind k:cmd       focus up
-# bind l:cmd    focus right
-# bind j:cmd;alt focus behind
-# bind k:cmd;alt   focus behind
 
 # Window Hints
 bind esc:cmd hint
