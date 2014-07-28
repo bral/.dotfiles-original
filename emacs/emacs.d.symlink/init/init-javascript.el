@@ -46,6 +46,7 @@
   ;; meteor
   "Meteor" "Template" "Session"
   ))
+
 (setq-default js2-idle-timer-delay 0.1)
 (setq-default js2-indent-on-enter-key nil)
 (setq-default js2-mirror-mode nil)
@@ -174,16 +175,6 @@
 (js2r--setup-wrapping-pair "\"" "\"")
 (js2r--setup-wrapping-pair "'" "'")
 
-;; (define-key js2-mode-map (kbd "C-c RET jt") 'jump-to-test-file)
-;; (define-key js2-mode-map (kbd "C-c RET ot") 'jump-to-test-file-other-window)
-;; (define-key js2-mode-map (kbd "C-c RET js") 'jump-to-source-file)
-;; (define-key js2-mode-map (kbd "C-c RET os") 'jump-to-source-file-other-window)
-;; (define-key js2-mode-map (kbd "C-c RET jo") 'jump-between-source-and-test-files)
-;; (define-key js2-mode-map (kbd "C-c RET oo") 'jump-between-source-and-test-files-other-window)
-
-;; (define-key js2-mode-map (kbd "C-c RET dp") 'js2r-duplicate-object-property-node)
-;; (define-key js2-mode-map (kbd "C-c RET ta") 'toggle-assert-refute)
-
 (defadvice js2r-inline-var (after reindent-buffer activate)
   (cleanup-buffer))
 
@@ -247,7 +238,6 @@
 
 (add-to-list 'load-path (expand-file-name "tern/emacs" user-emacs-directory))
 (autoload 'tern-mode "tern.el" nil t)
-;;(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
 (eval-after-load 'tern
    '(progn
       (require 'tern-auto-complete)
