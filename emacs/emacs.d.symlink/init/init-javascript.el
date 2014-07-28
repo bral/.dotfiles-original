@@ -20,7 +20,7 @@
 (setq-default js2-indent-level 2)
 (custom-set-variables
   '(js2-basic-offset 2)
-  '(js2-bounce-indent-p t))
+  '(js2-bounce-indent-p nil))
 (setq-default js2-allow-rhino-new-expr-initializer nil)
 (setq-default js2-auto-indent-p nil)
 (setq-default js2-enter-indents-newline nil)
