@@ -92,6 +92,7 @@
 (require 'init-erlang)
 (require 'init-joxa)
 (require 'init-jade)
+(require 'init-julia)
 (require 'init-markdown)
 (require 'init-yaml)
 
