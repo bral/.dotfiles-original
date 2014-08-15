@@ -1,3 +1,3 @@
 (require 'julia-mode)
 
-(require 'init-julia)
+(provide 'init-julia)
