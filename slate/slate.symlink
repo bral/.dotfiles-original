@@ -5,9 +5,13 @@ config resizePercentOf screenSize
 
 # Snapshot
   # Save
-  bind 1:shift;cmd snapshot snapShot1 save-to-disk
+  bind 1:shift;cmd snapshot oneScreen    save-to-disk
+  bind 2:shift;cmd snapshot twoScreens   save-to-disk
+  bind 3:shift;cmd snapshot threeScreens save-to-disk
   # Load
-  bind 2:shift;cmd activate-snapshot snapShot1
+  bind 1:alt;ctrl;cmd activate-snapshot oneScreen
+  bind 2:alt;ctrl;cmd activate-snapshot twoScreens
+  bind 3:alt;ctrl;cmd activate-snapshot threeScreens
 
 # Resize Bindings
 bind h:ctrl;alt resize -5% +0
