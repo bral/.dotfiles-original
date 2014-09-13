@@ -50,3 +50,16 @@ function grro() {
     git remote remove origin $argv
   fi
 }
+
+function gsll() {
+  for i in `find . -name .git -depth 2 | xargs -n1 dirname`
+  do
+    pushd $i > /dev/null
+    if [ -n "$(git status --porcelain)" ]; then
+      echo $i
+      git status -s
+      printf "\n"
+    fi
+    popd > /dev/null
+  done
+}
