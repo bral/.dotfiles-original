@@ -1,10 +1,18 @@
 
-alias tmux='TERMINFO=/usr/share/terminfo/x/xterm-16color TERM=xterm-16color tmux -2'
-alias tm='tmux'
 alias tma='tmux attach -t'
 alias tml='tmux list-sessions'
-alias tmn='tmux new-session -s'
 alias tmk='tmux kill-session -t'
-alias tmka='tmux kill-session -a'
+alias tmka='tmux kill-server'
+
+function tmn(){
+  local project=`find ~/Projects -maxdepth 2 -type d -name $1`
+
+  if [ $project ]; then
+    cd $project
+    tmux new-session -s `basename $project` -A
+  else
+    tmux new-session -s $1 -A
+  fi
+}
 
 alias et="vim ~/.tmux.conf"
