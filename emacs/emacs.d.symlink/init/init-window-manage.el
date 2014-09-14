@@ -35,17 +35,9 @@
 ;; -- Golden ratio
 (require-package 'golden-ratio)
 (global-set-key (caps-lock-bind "g") 'golden-ratio-mode)
-;; -- Enable / disable
-(defun golden-ratio-disable ()
-  (λ (if '(golden-ratio t) (golden-ratio-mode 0))))
-(defun golden-ratio-enable ()
-  (λ (if '(golden-ratio nil) (golden-ratio-mode 1))))
 
 ;; Minimize / maximize
 (global-set-key (caps-lock-bind "w") 'delete-window)
 (global-set-key (caps-lock-bind "-") 'delete-other-windows)
-;; (global-set-key (caps-lock-bind "=")
-;;                 (λ (golden-ratio-disable)
-;;                    (balance-windows)))
 
 (provide 'init-window-manage)

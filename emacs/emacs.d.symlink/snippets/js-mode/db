@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: debug
+# key: db
+# --
+debug($0);

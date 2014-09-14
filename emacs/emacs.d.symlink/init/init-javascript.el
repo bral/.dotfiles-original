@@ -45,6 +45,10 @@
   "suite" "test" "setup" "teardown"
   ;; meteor
   "Meteor" "Template" "Session"
+  ;; react
+  "React"
+  ;; chrome
+  "chrome"
   ))
 
 (setq-default js2-idle-timer-delay 0.1)
