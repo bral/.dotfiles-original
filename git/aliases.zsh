@@ -63,3 +63,14 @@ function gsll() {
     popd > /dev/null
   done
 }
+
+function clone() {
+  if [[ $1 == */* ]]
+  then
+    hub clone $1
+  else
+    hub clone $(basename `pwd`)/$1
+  fi
+
+  cd $1
+}
