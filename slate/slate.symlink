@@ -55,6 +55,10 @@ bind h:shift;alt nudge -5% +0
 bind j:shift;alt nudge +0  +5%
 bind k:shift;alt nudge +0  -5%
 bind l:shift;alt nudge +5% +0
+bind h:ctrl;shift;alt nudge -25% +0
+bind j:ctrl;shift;alt nudge +0  +25%
+bind k:ctrl;shift;alt nudge +0  -25%
+bind l:ctrl;shift;alt nudge +25% +0
 
 bind pad7:shift;alt nudge -5% -5%
 bind pad8:shift;alt nudge +0% -5%
