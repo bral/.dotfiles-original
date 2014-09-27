@@ -95,3 +95,5 @@ bind-key -r C-S-Left swap-window -t -1
 bind-key -r C-S-Right swap-window -t +1
 
 set -g default-terminal "screen-256color-bce"
+
+set-option -g history-limit 10000

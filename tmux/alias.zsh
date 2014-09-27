@@ -5,7 +5,7 @@ alias tmk='tmux kill-session -t'
 alias tmka='tmux kill-server'
 
 function tmn(){
-  local project=`find ~/Projects -maxdepth 2 -type d -name $1`
+  find ~/Projects -maxdepth 2 -type d -name $1 | read -r project
 
   if [ $project ]; then
     cd $project
