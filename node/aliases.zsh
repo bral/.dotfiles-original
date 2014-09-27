@@ -1,4 +1,18 @@
+
+alias _node="/usr/local/bin/node"
+
 if [[ `node -v` =~ ^v0.11 ]]; then
-  alias node="node --harmony"
-  alias node-dev="node-dev --harmony"
+  alias _node="/usr/local/bin/node --harmony"
 fi
+
+if [[ -z `which nr` ]]; then
+  npm install -g nr;
+fi
+
+function node(){
+  if [[ $# == 0 ]]; then
+    nr;
+  else
+    _node $@
+  fi
+}
