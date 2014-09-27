@@ -4,6 +4,8 @@
 # binding: direct-keybinding
 # --
 function merge(a,b){
-  for (var k in a) a[k] = b[k];
-  return b;$0
+  var z = {};
+  for (var k in a) z[k] = a[k];
+  for (var k in b) z[k] = b[k];
+  return z;$0
 }

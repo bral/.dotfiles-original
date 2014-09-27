@@ -3,5 +3,5 @@
 # key: it
 # --
 it('$1', function($2){
-  ${3:// tests}$0
+  $0
   });

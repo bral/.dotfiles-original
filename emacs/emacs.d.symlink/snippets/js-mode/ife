@@ -2,4 +2,4 @@
 # name: ife
 # key: ife
 # --
-if (${1:err}) return fn($1);
+if (${1:err}) return ${2:fn}($1);
