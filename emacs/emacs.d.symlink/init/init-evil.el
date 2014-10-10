@@ -80,10 +80,10 @@
 (define-key evil-normal-state-map (kbd "C-H-x") 'evil-numbers/dec-at-pt)
 
 ;; Insert
-(define-key evil-insert-state-map (kbd "C-h") 'evil-backward-char)
-(define-key evil-insert-state-map (kbd "C-j") 'evil-next-line)
-(define-key evil-insert-state-map (kbd "C-k") 'evil-previous-line)
-(define-key evil-insert-state-map (kbd "C-l") 'evil-forward-char)
+(define-key evil-insert-state-map (kbd "C-h") 'left-char)
+(define-key evil-insert-state-map (kbd "C-j") 'next-line)
+(define-key evil-insert-state-map (kbd "C-k") 'previous-line)
+(define-key evil-insert-state-map (kbd "C-l") 'right-char)
 
 ;; Move line or region
 (define-key evil-visual-state-map (kbd "C-S-J") 'move-text-down)
@@ -113,7 +113,6 @@
 
 ;; Version control
 (evil-leader/set-key "g" 'magit-status)
-
 
 (add-hook 'js2-mode-hook
   (lambda ()

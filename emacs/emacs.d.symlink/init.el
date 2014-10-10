@@ -95,6 +95,7 @@
 (require 'init-julia)
 (require 'init-markdown)
 (require 'init-yaml)
+(require 'init-elixir)
 
 ;; (require 'init-rework)
 

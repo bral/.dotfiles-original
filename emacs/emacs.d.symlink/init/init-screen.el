@@ -1652,7 +1652,11 @@ Use \\[toggle-read-only] to permit editing."
          (elscreen-kill))))
 
 (require-package 'zoom-frm)
+
 (global-set-key (caps-lock-bind "-") 'zoom-frm-out)
 (global-set-key (caps-lock-bind "=") 'zoom-frm-in)
+
+(define-key mac-key-mode-map [(alt -)] 'zoom-frm-out)
+(define-key mac-key-mode-map [(alt =)] 'zoom-frm-in)
 
 (provide 'init-screen)
