@@ -1,6 +1,6 @@
 
-function lsr () {
-  clear;
+function lsr() {
+  clear
   gls  \
     -go \
     -l \
@@ -13,18 +13,17 @@ function lsr () {
     --ignore="*~"
 }
 
-function cd () {
-  builtin cd "$@";
-  clear;
-  lsr;
-  if [ ! -z $TMUX ]; then
-    set-window-title "`basename $PWD`"
-  else
-    set-tab-title "`basename $PWD`"
-  fi
+function cd() {
+  builtin cd "$@"
+  clear
+  lsr
+  test -f .env && source .env
+  test ! -z $TMUX && set-window-title "`basename $PWD`"
+  set-tab-title "`basename $PWD`"
 }
 
-function set-tab-title {
+
+function set-tab-title() {
   local title_format{,ted}
   zstyle -s ':prezto:module:terminal:tab-title' format 'title_format' || title_format="%s"
   zformat -f title_formatted "$title_format" "s:$argv"
@@ -32,7 +31,7 @@ function set-tab-title {
   printf "\e]1;%s\a" ${(V%)title_formatted}
 }
 
-function set-window-title {
+function set-window-title() {
   local title_format{,ted}
   zstyle -s ':prezto:module:terminal:window-title' format 'title_format' || title_format="%s"
   zformat -f title_formatted "$title_format" "s:$argv"

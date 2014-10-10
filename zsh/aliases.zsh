@@ -11,7 +11,7 @@ alias sz="source ~/.zshrc"
 
 # movement
 alias l="lsr"
-alias er="clear && tree .. -L 3 -I 'node_moduels|components|build|target' --filelimit 12 -C"
+alias er="clear && tree -L 3 -I 'node_moduels|components|build|target' --filelimit 12 -C"
 alias j="cd .."
 alias k="cd -"
 
@@ -24,3 +24,4 @@ alias .....='cd ../../../..'
 alias fs="foreman start"
 alias terminal-notifier="/Applications/terminal-notifier.app/Contents/MacOS/terminal-notifier"
 alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
+alias wp="webpack"

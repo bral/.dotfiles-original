@@ -18,12 +18,14 @@ alias grc="git rebase --continue"
 alias gri="git rebase --interactive"
 alias gl="git l"
 alias gd="git diff"
+alias gdc="git diff --cached"
 alias gpl="git pull"
 alias gp="git push"
 alias gb="git branch"
 alias gc="git commit"
 alias gcm="git commit -m"
 alias gca="git commit -a"
+alias gcam="git commit -a -m"
 alias gbd="git branch -D"
 alias gpom="git pull origin master"
 alias gpo="git pull origin"
@@ -69,8 +71,7 @@ function clone() {
   then
     hub clone $1
   else
-    hub clone $(basename `pwd`)/$1
+    hub clone $(basename "`pwd`")/$1
   fi
-
   cd $1
 }

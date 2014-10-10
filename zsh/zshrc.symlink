@@ -31,9 +31,9 @@ done
 
 unset config_files
 
-
 pathdirs=(
   $HOME/bin
+  $HOME/bin/*
   $HOME/.rvm/bin
   /bin
   /sbin
@@ -47,11 +47,9 @@ pathdirs=(
 )
 
 for dir in $pathdirs; do
-  if [ -d $dir ]; then
-    path+=$dir
-  fi
+  test -d $dir && path+=$dir
 done
 
-if [[ -f ~/.zshprofile ]]; then
-  source ~/.zshprofile
-fi
+export PATH=./._bin:$PATH
+
+test -f ~/.zshprofile && source ~/.zshprofile
