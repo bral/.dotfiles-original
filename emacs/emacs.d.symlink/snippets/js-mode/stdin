@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: stdin
+# key: stdin
+# --
+var str = '';
+process.stdin.setEncoding('utf8');
+process.stdin.on('data', function(chunk){ str += chunk; });
+process.stdin.on('end', done);
+process.stdin.resume();
+
+function done() {
+  $0
+}

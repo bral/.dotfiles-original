@@ -3,5 +3,5 @@
 # key: fu
 # --
 function($1){
-	${2:// some stuff here...}
+	$0
 }

@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: inspect
+# key: inspect
+# --
+function inspect(a){
+  var _inspect = require('util').inspect;
+  if (typeof a === 'function') return console.log(a.toString());
+  console.log(_inspect(a, {showHidden: true, depth: 2}));
+}

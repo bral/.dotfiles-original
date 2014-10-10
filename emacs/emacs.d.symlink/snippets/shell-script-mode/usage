@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: usage
+# key: usage
+# --
+usage() {
+  cat <<-EOF
+
+  Usage: ${1:cmd} [options] [command]
+
+  Options:
+
+    -h, --help     output help information
+
+  Commands:
+
+    ${2:run}       $3
+
+EOF
+}
