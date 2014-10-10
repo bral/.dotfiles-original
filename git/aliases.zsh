@@ -31,6 +31,7 @@ alias grc="git rebase --continue"
 alias gri="git rebase --interactive"
 alias gs="git status"
 alias gst="git stash"
+alias gstp="git stash pop"
 alias gcp="git cherry-pick"
 
 function grao() {
