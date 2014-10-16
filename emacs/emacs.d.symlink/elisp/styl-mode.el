@@ -58,7 +58,7 @@
   :prefix "styl-"
   :group 'styl)
 
-(defcustom styl-tab-width tab-width
+(defcustom styl-tab-width 2
   "The tab width to use when indenting."
   :type 'integer
   :group 'styl
@@ -275,7 +275,6 @@
 (defun styl-indent-line ()
   "Indent current line as StylScript."
   (interactive)
-
   (if (= (point) (line-beginning-position))
       (styl-insert-spaces styl-tab-width)
     (save-excursion
