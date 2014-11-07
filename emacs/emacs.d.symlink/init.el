@@ -74,7 +74,7 @@
 (require 'init-wholeline)
 (require 'init-editing)
 (require 'init-move-text)
-;; (require 'init-smartparens)
+(require 'init-smartparens)
 
 ;; Snippets
 (require 'init-yasnippet)

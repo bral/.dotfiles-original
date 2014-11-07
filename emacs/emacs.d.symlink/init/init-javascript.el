@@ -252,6 +252,7 @@
 
 (defun js2-fetch-autolint-externs (file)
   (let* ((settings (with-temp-buffer
+                     (interactive)
                      (insert-file-literally file)
                      (javascript-mode)
                      (let (kill-ring kill-ring-yank-pointer) (kill-comment 1000))
@@ -315,5 +316,15 @@
                     (:else 0)))))
     (unless first-line
       (indent-line-to offset))))
+
+;; Add newline inbetween {} on RET for function definition
+(defun js2-b-function-newline (&rest _ignored)
+  (interactive)
+  (progn
+    (newline-and-indent)
+    (previous-line)
+    (indent-according-to-mode)))
+
+(sp-local-pair '(js2-mode) "{" nil :post-handlers `((js2-b-function-newline "RET")))
 
 (provide 'init-javascript)
