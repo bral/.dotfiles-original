@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: console.timeEnd
+# key: cte
+# --
+console.timeEnd($0);

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: commander-option
+# name: commander-option--
 # key: .option--
 # --
 .option('--$1', '$2', $3)

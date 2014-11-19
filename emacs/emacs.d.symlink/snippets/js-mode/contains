@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: contains
+# key: contains
+# --
+function contains(arr, el){
+  if ('string' === typeof arr) return !!~arr.indexOf(el)
+  var i = 0, len = arr.length >>> 0;
+  while (i < len) if (el === arr[i++]) return true;
+  return false;
+}

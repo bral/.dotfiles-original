@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: console info
+# key: cii
+# --
+console.info('$1', ${$1});$0

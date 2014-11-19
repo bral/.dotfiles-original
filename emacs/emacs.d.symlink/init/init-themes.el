@@ -1,8 +1,7 @@
 (require-package 'color-theme)
 (require-package 'color-theme-solarized)
 
-(set-face-attribute 'default nil
-  :family "Menlo" :height 180 :weight 'normal)
+;; (load-theme 'sanityinc-solarized-dark)
 
 (setq-default custom-enabled-themes '(solarized-dark))
 
@@ -13,6 +12,7 @@
       (load-theme theme t)))
   (custom-set-variables `(custom-enabled-themes (quote ,custom-enabled-themes))))
 
-(reapply-themes)
+(set-face-attribute 'default nil
+  :family "Menlo" :height 180 :weight 'normal)
 
 (provide 'init-themes)

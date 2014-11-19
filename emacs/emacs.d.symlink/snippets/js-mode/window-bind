@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: window-bind
+# key: w
+# --
+window.$1 = ${$1};$0

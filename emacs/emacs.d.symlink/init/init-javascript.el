@@ -47,6 +47,8 @@
   "Meteor" "Template" "Session"
   ;; react
   "React"
+  ;; angular
+  "angular"
   ;; chrome
   "chrome"
   ))
@@ -209,7 +211,7 @@
 
 ;; Use lambda for anonymous functions
 (font-lock-add-keywords
- 'js2-mode `(("\\(function\\) *("
+ 'js2-mode `(("\\(function\\) *?("
               (0 (progn (compose-region (match-beginning 1)
                                         (match-end 1) "\u0192")
                         nil)))))
@@ -239,13 +241,6 @@
                 ))))
 
 (require 'json)
-
-(add-to-list 'load-path (expand-file-name "tern/emacs" user-emacs-directory))
-(autoload 'tern-mode "tern.el" nil t)
-(eval-after-load 'tern
-   '(progn
-      (require 'tern-auto-complete)
-      (tern-ac-setup)))
 
 (defun my-aget (key map)
   (cdr (assoc key map)))
