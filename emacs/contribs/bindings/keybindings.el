@@ -2,8 +2,30 @@
 
 (setq-default evil-shift-width 2)
 
-(define-key evil-normal-state-map "[ " 'evil-open-above)
-(define-key evil-normal-state-map "] " 'evil-open-below)
+;; Better line openings.
+(defun open-line-below ()
+  (interactive)
+  (point-to-register 1)
+  (end-of-line)
+  (newline)
+  (indent-for-tab-command)
+  (beginning-of-line)
+  (delete-trailing-whitespace)
+  (jump-to-register 1))
+
+(defun open-line-above ()
+  (interactive)
+  (point-to-register 1)
+  (beginning-of-line)
+  (newline)
+  (forward-line -1)
+  (indent-for-tab-command)
+  (beginning-of-line)
+  (delete-trailing-whitespace)
+  (jump-to-register 1))
+
+(define-key evil-normal-state-map "[ " 'open-line-above)
+(define-key evil-normal-state-map "] " 'open-line-below)
 
 (define-key evil-insert-state-map (kbd "C-h") 'left-char)
 (define-key evil-insert-state-map (kbd "C-j") 'next-line)
@@ -60,7 +82,6 @@
   :diminish JS
   :init
     (use-package json)
-    
 
     (setq-default js2-indent-level 2)
     (custom-set-variables
@@ -97,7 +118,7 @@
       ;; chrome
       "chrome"
       ))
-    
+
   ;; Use lambda for anonymous functions
   (font-lock-add-keywords
    'js2-mode `(("\\(function\\) *?("
