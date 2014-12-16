@@ -9,6 +9,6 @@ alias ... cd ../..
 alias .. cd ..
 alias k cd - $*
 alias j cd .. $*
-alias l ls -lah $*
+alias l ls -lAh $*
 alias gp git push origin master $*
 alias ga git add . -A $*

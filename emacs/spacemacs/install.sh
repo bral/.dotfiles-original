@@ -1,6 +1,10 @@
 #!/usr/local/bin/zsh
 
-if test -d ~/.emacs.d; then
+install_spacemacs() {
+  git clone --recursive https://github.com/syl20bnr/spacemacs ~/.emacs.d
+}
+
+if test -e ~/.emacs.d; then
   answer=
   vared -p 'This will remove your current emacs.d. Continue?' answer
 
@@ -8,6 +12,7 @@ if test -d ~/.emacs.d; then
 
   mv ~/.emacs.d ~/.Trash/.emacs.d
 
-  git clone --recursive https://github.com/syl20bnr/spacemacs ~/.emacs.d
-
+  install_spacemacs
+else
+  install_spacemacs
 fi

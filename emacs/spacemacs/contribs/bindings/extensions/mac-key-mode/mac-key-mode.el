@@ -66,7 +66,7 @@
 ;;; Code:
 
 ;; requires redo+
-(require 'redo+)
+;; (require 'redo+)
 
 (defgroup mac-key-mode nil
   "Mac-style key-binding mode."
@@ -112,7 +112,7 @@ when `mac-key-mode' is on.")
     (define-key map [(alt p)] 'print-buffer)
     (define-key map [(alt q)] 'save-buffers-kill-emacs)
     (define-key map [(alt z)] 'undo)
-    (define-key map [(alt shift z)] 'redo) ; requires redo+
+    ;; (define-key map [(alt shift z)] 'redo) ; requires redo+
     (define-key map [(alt x)] 'clipboard-kill-region)
     (define-key map [(alt c)] 'clipboard-kill-ring-save)
     (define-key map [(alt v)] 'clipboard-yank)

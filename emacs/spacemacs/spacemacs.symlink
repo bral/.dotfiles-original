@@ -1,0 +1,97 @@
+;; -*- mode: emacs-lisp -*-
+
+;; Configuration Layers
+;; --------------------
+
+(setq-default
+ dotspacemacs-configuration-layer-path
+ '(
+   "~/.dotfiles/emacs/spacemacs/contribs/"
+   )
+ dotspacemacs-configuration-layers
+ '(
+   ;; language-specific contribs
+   jade
+   js
+   stylus
+   ;; user-defined contribs
+   bindings
+   eshell
+   fringe
+   maybe-exit
+   ;; spacemacs contribs
+   javascript
+   )
+ dotspacemacs-excluded-packages
+ '(
+   rainbow-delimiters-mode
+   )
+)
+
+;; Settings
+;; --------
+
+(setq-default
+ dotspacemacs-default-theme 'solarized-dark
+ dotspacemacs-leader-key "SPC"
+ dotspacemacs-command-key ":"
+ dotspacemacs-guide-key-delay 0.4
+ dotspacemacs-fullscreen-at-startup nil
+ dotspacemacs-smooth-scrolling t
+ dotspacemacs-feature-toggle-leader-on-jk nil
+ dotspacemacs-smartparens-strict-mode nil
+ dotspacemacs-persistent-server nil
+ dotspacemacs-default-package-repository nil
+)
+
+(defun dotspacemacs/init ()
+  "User initialization for Spacemacs. This function is called at the very
+ startup."
+  (load-file "~/.dotfiles/emacs/spacemacs/scratch")
+)
+
+(defun dotspacemacs/config ()
+  "This is were you can ultimately override default Spacemacs configuration.
+This function is called at the very end of Spacemacs initialization."
+
+  (defun open-special-file (file)
+   "Open emacs dots"
+   (find-file-at-point file))
+
+  (global-set-key (kbd "A-C-M-S-d")
+                  (lambda ()
+                    (interactive)
+                    (open-special-file "~/.dotfiles/emacs/spacemacs/scratch")))
+
+  (open-special-file "~/.dotfiles/emacs/spacemacs/scratch")
+
+  ;; (load (concat user-home-directory ".dotfiles/emacs/emacs.d.symlink/init.el"))
+  ;; (require 'init)
+)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ac-ispell-requires 4)
+ '(ahs-case-fold-search nil)
+ '(ahs-default-range (quote ahs-range-whole-buffer))
+ '(ahs-idle-interval 0.25)
+ '(ahs-idle-timer 0 t)
+ '(ahs-inhibit-face-list nil)
+ '(fringe-mode 0 nil (fringe))
+ '(global-linum-mode t)
+ '(global-vi-tilde-fringe-mode nil)
+ '(js2-basic-offset 2)
+ '(js2-bounce-indent-p nil)
+ '(paradox-automatically-star nil)
+ '(paradox-github-token "1689fad5bfda2bd772d75413c83de38cb02418da")
+ '(ring-bell-function (quote ignore) t)
+ )
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(linum ((t (:background "#073642" :foreground "#586e75")))))
