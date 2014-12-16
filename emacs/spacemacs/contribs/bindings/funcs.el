@@ -5,7 +5,7 @@
   (kbd (concat caps-lock-modifier "-" key)))
 
 ;; Better line openings.
-(defun open-line-below ()
+(defun bindings/open-line-below ()
   (interactive)
   (point-to-register 1)
   (end-of-line)
@@ -15,7 +15,7 @@
   (delete-trailing-whitespace)
   (jump-to-register 1))
 
-(defun open-line-above ()
+(defun bindings/open-line-above ()
   (interactive)
   (point-to-register 1)
   (beginning-of-line)
@@ -26,3 +26,17 @@
   (delete-trailing-whitespace)
   (jump-to-register 1))
 
+(defun elscreen-create-last-buffer ()
+  "Create a new screen with the current buffer."
+  (interactive)
+  (elscreen-create)
+  (spacemacs/last-buffer))
+
+(defun elscreen-kill-maybe ()
+  "Kill current screen if screens remain; otherwise
+kill emacs."
+  (interactive)
+  (if
+      (/= (length (elscreen-get-screen-list)) 1)
+      (elscreen-kill)
+    (save-buffers-kill-emacs)))

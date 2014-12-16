@@ -5,14 +5,14 @@
 
 (setq-default
  dotspacemacs-configuration-layer-path
- '(
-   "~/.dotfiles/emacs/spacemacs/contribs/"
-   )
+ (cons dotfiles-spacemacs-contribs-dir ())
+
  dotspacemacs-configuration-layers
  '(
    ;; language-specific contribs
    jade
    js
+   rust
    stylus
    ;; user-defined contribs
    bindings
@@ -47,26 +47,13 @@
 (defun dotspacemacs/init ()
   "User initialization for Spacemacs. This function is called at the very
  startup."
-  (load-file "~/.dotfiles/emacs/spacemacs/scratch")
+  (load-file dotfiles-spacemacs-before)
 )
 
 (defun dotspacemacs/config ()
   "This is were you can ultimately override default Spacemacs configuration.
 This function is called at the very end of Spacemacs initialization."
-
-  (defun open-special-file (file)
-   "Open emacs dots"
-   (find-file-at-point file))
-
-  (global-set-key (kbd "A-C-M-S-d")
-                  (lambda ()
-                    (interactive)
-                    (open-special-file "~/.dotfiles/emacs/spacemacs/scratch")))
-
-  (open-special-file "~/.dotfiles/emacs/spacemacs/scratch")
-
-  ;; (load (concat user-home-directory ".dotfiles/emacs/emacs.d.symlink/init.el"))
-  ;; (require 'init)
+  (load-file dotfiles-spacemacs-after)
 )
 
 (custom-set-variables

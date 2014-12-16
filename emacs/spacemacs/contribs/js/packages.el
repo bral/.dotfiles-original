@@ -38,7 +38,7 @@ which require an initialization must be listed explicitly in the list.")
 
       (setq-default js2-indent-level 2)
       (setq-default js2-basic-offset 2)
-      (setq-default js2-bounce-indent-p nil))
+      (setq-default js2-bounce-indent-p nil)
       (setq-default js2-allow-rhino-new-expr-initializer nil)
       (setq-default js2-auto-indent-p nil)
       (setq-default js2-enter-indents-newline nil)
@@ -65,5 +65,4 @@ which require an initialization must be listed explicitly in the list.")
                                               (match-end 1) "\u2190")
                               nil)))))
 
-      ;; Enable yasnippet
-      (setq-default yas-minor-mode t)))
+      )))

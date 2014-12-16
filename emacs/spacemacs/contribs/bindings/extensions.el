@@ -14,7 +14,7 @@
 
 (defun bindings/init-mac-key-mode ()
   (use-package mac-key-mode
-    :init
+    :config
     (progn
       ;; Default keysets
       (mac-key-mode 1)
