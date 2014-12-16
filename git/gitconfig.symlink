@@ -72,6 +72,9 @@
 [core]
   excludesfile = ~/.dotfiles/git/gitignore
   editor = vim
+  eol = lf
+  autocrlf = true
+  safecrlf = false
 
 [advice]
   statusHints = false
