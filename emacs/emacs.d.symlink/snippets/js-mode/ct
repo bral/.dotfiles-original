@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: console.time
+# key: ct
+# --
+console.time($0);

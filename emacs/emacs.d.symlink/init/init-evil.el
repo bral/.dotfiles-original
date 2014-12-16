@@ -3,7 +3,7 @@
 (setq-default evil-shift-width 2)
 (evil-mode 1)
 
-(require-package 'surround)
+(require-package 'evil-surround)
 (global-surround-mode 1)
 
 (require-package 'evil-leader)
@@ -86,8 +86,9 @@
 (define-key evil-insert-state-map (kbd "C-l") 'right-char)
 
 ;; Move line or region
-(define-key evil-visual-state-map (kbd "C-S-J") 'move-text-down)
 (define-key evil-normal-state-map (kbd "C-S-J") 'move-text-down)
+(define-key evil-visual-state-map (kbd "C-S-J") 'move-text-down)
+
 (define-key evil-visual-state-map (kbd "C-S-K") 'move-text-up)
 (define-key evil-normal-state-map (kbd "C-S-K") 'move-text-up)
 

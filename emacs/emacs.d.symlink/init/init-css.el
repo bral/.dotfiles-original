@@ -37,6 +37,8 @@
   (dolist (hook '(css-mode-hook sass-mode-hook scss-mode-hook))
     (add-hook hook 'ac-css-mode-setup)))
 
+(setq css-indent-offset 4)
+
 ;;; Use eldoc for syntax hints
 (require-package 'css-eldoc)
 (autoload 'turn-on-css-eldoc "css-eldoc")

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: console warn
+# key: cww
+# --
+console.warn('$1', ${$1});$0

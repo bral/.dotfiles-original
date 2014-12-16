@@ -1,0 +1,11 @@
+j
+
+;; just a scratch
+
+(dired dotfiles-spacemacs-scratches-dir)
+
+(if
+    (/= (length (elscreen-get-screen-list)) 0)
+    (elscreen-kill)
+  (print "nope")
+    )

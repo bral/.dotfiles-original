@@ -542,6 +542,11 @@ Advances point just past JSON object."
         ((listp object)        (json-encode-list object))
         (t                     (signal 'json-error (list object)))))
 
+
+(add-hook 'json-mode-hook
+          (lambda ()
+            (setq js-indent-level 2)))
+
 (provide 'init-json)
 
 ;;; json.el ends here

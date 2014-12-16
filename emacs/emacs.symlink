@@ -1,0 +1,35 @@
+;; -*- mode: emacs-lisp; -*-
+
+(defvar dotfiles-root-dir
+  (expand-file-name "~/.dotfiles/")
+  "Dotfiles root directory.")
+
+(defvar dotfiles-emacs-dir
+  (expand-file-name (concat dotfiles-root-dir "emacs/"))
+  "Dotfiles emacs directory.")
+
+(defvar dotfiles-emacs-common-dir
+  (expand-file-name (concat dotfiles-emacs-dir "emacs.d.symlink/"))
+  "Dotfiles common emacs directory.")
+
+(defvar dotfiles-spacemacs-dir
+  (expand-file-name (concat dotfiles-emacs-dir "spacemacs/"))
+  "Dotfiles spacemacs directory.")
+
+(defvar dotfiles-spacemacs-contribs-dir
+  (expand-file-name (concat dotfiles-spacemacs-dir "contribs/"))
+  "Dotfiles spacemacs directory.")
+
+(defvar dotfiles-spacemacs-before
+  (expand-file-name (concat dotfiles-spacemacs-dir "before.el"))
+  "Spacemacs init file.")
+
+(defvar dotfiles-spacemacs-after
+  (expand-file-name (concat dotfiles-spacemacs-dir "after.el"))
+  "Spacemacs config file.")
+
+(defvar dotfiles-spacemacs-scratches-dir
+  (expand-file-name (concat dotfiles-spacemacs-dir "scratches/"))
+  "Spacemacs scratch files.")
+
+(load (concat user-emacs-directory "init.el"))

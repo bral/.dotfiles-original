@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: forv
+# key: forv
+# --
+for (var i = 0, v; (v = ${num}) !== 'undefined'; i++) {$0}

@@ -2,8 +2,18 @@
 # name: inspect
 # key: inspect
 # --
-function inspect(a){
-  var _inspect = require('util').inspect;
-  if (typeof a === 'function') return console.log(a.toString());
-  console.log(_inspect(a, {showHidden: true, depth: 2}));
+function inspect(a0){
+  var args = [].slice.call(arguments);
+  var opts = { showHidden: false, depth: Infinity, colors: true };
+  if (typeof a0 == 'string' && a0.charAt(0) === '!') {
+    var parts = a0.slice(1).replace(/ */g,'').split(',').map(function(s){return s.split(':')});
+    while (parts.length) { var p = parts.shift(); opts[p[0]] = p[1]; }
+    args.splice(0, 1);
+  }
+  var insp = require('util').inspect;
+  for (var i = 0, arg; arg = args[i]; i++) {
+    if (typeof arg === 'function') arg = arg.toString(2);
+    args[i] = insp(arg, opts);
+  }
+  console.log.apply(console.log, args);
 }
