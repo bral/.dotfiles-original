@@ -10,6 +10,7 @@ tags
 *~
 *.swp
 *.rbc
+*.tern-port
 
 node_modules
 components

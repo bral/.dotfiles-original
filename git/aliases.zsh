@@ -1,3 +1,5 @@
+# -*- mode: shell-script; -*-
+
 # Use `hub` as wrapper
 hub_path=$(which hub)
 if (( $+commands[hub] ))
