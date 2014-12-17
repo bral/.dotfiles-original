@@ -1,0 +1,28 @@
+# -*- mode: shell-script; -*-
+
+# this improved `man` function loads a manpage if it exists
+#   e.g., `man ls``
+#
+# otherwise it looks for a builtin and loads that
+#   e.g., `man cd`
+#
+# if that fails, it defers to the builtin `man`
+
+function man() {
+  builtin_man() { /usr/bin/man $@ }
+  bin_man() { builtin_man -P '/usr/bin/less -is -c~' $@ }
+
+  if [[ $# = 0 ]]; then
+    builtin_man --help
+  elif [[ $(builtin_man $@ &>/dev/null || echo 1) = 1 ]]; then
+    if [[ -e $HELPDIR/$1 ]]; then
+      bin_man $HELPDIR/$1
+    else
+      bin_man $@
+    fi
+  elif [ $(builtin_man $1 -w) = $(builtin_man builtin -w) ]; then
+    bin_man $HELPDIR/$1
+  else
+    bin_man $@
+  fi
+}
