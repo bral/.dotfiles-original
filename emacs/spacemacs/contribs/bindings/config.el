@@ -1,3 +1,5 @@
+(setq evil-shift-width 2)
+
 ;; increase text globally instead of by-buffer
 (defadvice text-scale-increase (around all-buffers (arg) activate)
   (dolist (buffer (buffer-list))
