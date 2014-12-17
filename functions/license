@@ -1,39 +1,11 @@
-function license(){
+function license() {
 
   local year=$(date +"%Y")
   local file=$(pwd)/LICENSE
+  local line="$(git config --get user.fullname)"
 
-  clear
-
-  function log(){
-    printf "\n\033[90m%s\033[0m : " "$1"
-  }
-
-  function quit(){
-    clear
-    printf "\n\033[31m%s\033[0m\n" "$1"
-  }
-
-  function success(){
-    clear
-    printf "\n\033[90m%s\033[0m %s\n" $1 $2
-    echo
-  }
-
-  function ask(){
-    log $1
-    read line
-    if [ $line ] ; then
-      cat ~/.config/license \
-        | sed "s,\$year,$year," \
-        | sed "s,\$$1,$line," \
-        > $file
-      success "Wrote" $file
-    else
-      quit "You must pass $1"
-      ask
-    fi
-  }
-
-  ask "name"
+  vared -p "name : " line
+  (sed "s,\$year,$year," | sed "s,\$name,$line,") < ~/.config/license > $file
+  echo "Wrote $file:"
+  printf "\n\033[90m%s\033[0m\n\n" "$(pr -o 2 -t $file)"
 }
