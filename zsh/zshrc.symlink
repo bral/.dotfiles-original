@@ -1,3 +1,5 @@
+# -*- mode: shell-script; -*-
+
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
@@ -50,6 +52,14 @@ for dir in $pathdirs; do
   test -d $dir && path+=$dir
 done
 
-export PATH=./._bin:$PATH
-
+# source optional profile
 test -f ~/.zshprofile && source ~/.zshprofile
+
+# use gnu manpages
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export HELPDIR=/usr/local/share/zsh/help
+
+# this lets `read` and `vared` backspace properly
+if [[ $(ps -o comm= $PPID) = iterm ]]; then
+  stty erase '^?'
+fi

@@ -1,16 +1,21 @@
+# -*- mode: sh -*-
 
 function lsr() {
-  clear
-  gls  \
+  gls \
+    --ignore='#*' \
+    --ignore='*~' \
+    --ignore='.DS_Store' \
+    --ignore='.tern-port)' \
     -go \
     -l \
     --almost-all \
     --human-readable \
     --color=auto \
     --group-directories-first \
-    --ignore="#*" \
-    --ignore=".DS_Store" \
-    --ignore="*~"
+    --color=always \
+    --time-style='+%b-%d-%y %H:%M' \
+    $@ \
+      | grep -v -e '^total'
 }
 
 function cd() {
