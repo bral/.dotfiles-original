@@ -33,9 +33,9 @@ tmux_start_session() {
 
   if [[ ! $answer =~ ^[Yy] ]]; then return 1; fi
 
-  if [[ ! -d $answer ]]; then
+  if [[ ! -d $dir ]]; then
     echo "creating $dir..."
-    mkdir -p $answer
+    mkdir -p $dir
   fi
 
   cd $dir
