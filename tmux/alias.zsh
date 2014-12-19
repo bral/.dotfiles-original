@@ -1,34 +1,65 @@
-# -*- mode: shell-script; -*-
-
 alias tma='tmux attach -t'
 alias tml='tmux list-sessions'
 alias tmk='tmux kill-session -t'
 alias tmka='tmux kill-server'
 
 tmn() {
+  local dir=$(
+  find_project \
+    ~/Projects 2 $1 \
+    ~ 1 $1 \
+    ~ 2 $1
+  )
 
-  PROJ=`tmux_project_session ~/Projects 2 $1`
-  if [ $PROJ ]; then return; fi
-  PROJ=`tmux_project_session ~ 1 $1`
-  if [ $PROJ ]; then return; fi
-  PROJ=`tmux_project_session ~ 2 $1`
-  if [ $PROJ ]; then return; fi
-
-  tmux new-session -A -s $1;
+  if [ -z $dir ]; then
+    tmux_start_session ~/Projects
+  else
+    tmux_start_session $dir
+  fi
 }
 
-tmux_project_session() {
+tmux_start_session() {
+  local dir=$1
+  vared -p "path: " dir
+  test $? -gt 0 && return 1
+
+  local safename=`echo $dir | tr -d '.' | xargs basename`
+  vared -p "name: " safename
+  test $? -gt 0 && return 1
+
+  local answer="Y"
+  vared -p "session $safename at $dir? " answer
+  test $? -gt 0 && return 1
+
+  if [[ ! $answer =~ ^[Yy] ]]; then return 1; fi
+
+  if [[ ! -d $answer ]]; then
+    echo "creating $dir..."
+    mkdir -p $answer
+  fi
+
+  cd $dir
+  tmux new-session -A -s $safename
+}
+
+find_project() {
   local directory=$1
   local depth=$2
   local query=$3
 
   find $directory -maxdepth $depth -type d -name $query | read -r project
 
-  if [ $project ]; then
-    cd $project
-    local safename=`echo $project | tr -d '.' | xargs basename`
-    tmux new-session -A -s $safename
-    echo
+  if [ ! -z $project ]; then
+    echo $project
+    exit
+  fi
+
+  if [ $# -gt 3 ]; then
+    shift 3
+    find_project $@
+  else
+    >&2 echo "no projects found"
+    exit 1
   fi
 }
 
