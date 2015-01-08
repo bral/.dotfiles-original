@@ -73,7 +73,7 @@
   excludesfile = ~/.dotfiles/git/gitignore
   editor = vim
   eol = lf
-  autocrlf = true
+  autocrlf = input
   safecrlf = false
 
 [advice]
