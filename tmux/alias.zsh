@@ -27,12 +27,6 @@ tmux_start_session() {
   vared -p "name: " safename
   test $? -gt 0 && return 1
 
-  local answer="Y"
-  vared -p "session $safename at $dir? " answer
-  test $? -gt 0 && return 1
-
-  if [[ ! $answer =~ ^[Yy] ]]; then return 1; fi
-
   if [[ ! -d $dir ]]; then
     echo "creating $dir..."
     mkdir -p $dir
