@@ -33,6 +33,7 @@ alias grc="git rebase --continue"
 alias gri="git rebase --interactive"
 alias gs="git status"
 alias gst="git stash"
+alias gsh="git show"
 alias gstp="git stash pop"
 alias gcp="git cherry-pick"
 
