@@ -7,6 +7,7 @@ tmn() {
   local dir=$(
   find_project \
     ~/Projects 2 $1 \
+    ~/.dotfiles 1 $1 \
     ~ 1 $1 \
     ~ 2 $1
   )
