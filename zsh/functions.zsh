@@ -44,3 +44,7 @@ function set-window-title() {
 
   printf "$title_format" "${(V%)title_formatted}"
 }
+
+function grep() {
+  /usr/bin/grep --exclude-dir={node_modules,.git,components} $@
+}
