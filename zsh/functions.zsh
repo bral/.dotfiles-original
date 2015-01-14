@@ -2,15 +2,11 @@
 
 function lsr() {
   gls \
-    --ignore='#*' \
-    --ignore='*~' \
-    --ignore='.DS_Store' \
-    --ignore='.tern-port)' \
+    --ignore={#*,*~,.DS_Store,.tern-port} \
     -go \
     -l \
     --almost-all \
     --human-readable \
-    --color=auto \
     --group-directories-first \
     --color=always \
     --time-style='+%b-%d-%y %H:%M' \
@@ -26,7 +22,6 @@ function cd() {
   test ! -z $TMUX && set-window-title "`basename $PWD`"
   set-tab-title "`basename $PWD`"
 }
-
 
 function set-tab-title() {
   local title_format{,ted}
