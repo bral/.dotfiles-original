@@ -1,1 +1,1 @@
-(load-file (expand-file-name (concat dotfiles-spacemacs-scratches-dir "scratch.el")))
+;; (load-file (expand-file-name (concat dotfiles-spacemacs-scratches-dir "scratch.el")))
