@@ -48,3 +48,7 @@ function set-window-title() {
 function grep() {
   /usr/bin/grep --exclude-dir={node_modules,.git,components} $@
 }
+
+function tree() {
+  /usr/local/bin/tree -I 'node_modules|components|.git' $@
+}
