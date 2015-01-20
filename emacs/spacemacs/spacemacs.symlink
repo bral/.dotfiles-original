@@ -37,7 +37,7 @@
  dotspacemacs-default-theme 'solarized-dark
  dotspacemacs-leader-key "SPC"
  dotspacemacs-command-key ":"
- dotspacemacs-guide-key-delay 0.4
+ dotspacemacs-guide-key-delay 0.25
  dotspacemacs-fullscreen-at-startup nil
  dotspacemacs-smooth-scrolling t
  dotspacemacs-feature-toggle-leader-on-jk nil

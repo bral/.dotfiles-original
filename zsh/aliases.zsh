@@ -22,6 +22,9 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
+# make mv ask before overwriting a file by default
+alias mv='mv -i'
+
 # misc
 alias fs="foreman start"
 alias terminal-notifier="/Applications/terminal-notifier.app/Contents/MacOS/terminal-notifier"
