@@ -38,17 +38,9 @@ cask --appdir="/Applications" \
   dropbox \
   google-drive \
   one-password \
-  firefox \
-  google-chrome \
   iterm2 \
-  f-lux \
   nv-alt \
-  propane \
-  sauce \
-  skype \
   spotify \
-  virtualbox \
-  vlc \
   slate \
   sublime-text
 
