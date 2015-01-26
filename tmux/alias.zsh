@@ -1,3 +1,5 @@
+# -*- mode: shell-script; -*-
+
 alias tma='tmux attach -t'
 alias tml='tmux list-sessions'
 alias tmk='tmux kill-session -t'
@@ -6,8 +8,9 @@ alias tmka='tmux kill-server'
 tmn() {
   local dir=$(
   find_project \
-    ~/Projects 2 $1 \
-    ~/.dotfiles 1 $1 \
+    $ZSH 1 $1 \
+    $PROJECTS/$USER 1 $1 \
+    $PROJECTS 2 $1 \
     ~ 1 $1 \
     ~ 2 $1
   )
@@ -41,6 +44,10 @@ find_project() {
   local directory=$1
   local depth=$2
   local query=$3
+
+  # if [[ ${query[1]} = / && -d $1 ]]; then
+  #   tmux_start_session $1
+  # fi
 
   find $directory -maxdepth $depth -type d -name $query | read -r project
 
