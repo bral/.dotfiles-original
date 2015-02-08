@@ -73,11 +73,52 @@ function gsll() {
 }
 
 function clone() {
-  if [[ $1 == */* ]]
-  then
-    hub clone $1
-  else
-    hub clone $(basename "`pwd`")/$1
+  if [ ! -d $PROJECTS ]; then
+    <&2 echo \
+      "Cannot clone without PROJECTS environment variable." \
+      "Export target projects directory as PROJECTS and retry."
+    return 1
   fi
-  cd $1
+
+  PWD=$(pwd)
+  DEPTH=("${(s,/,)PWD}")
+  PROJECTS_DIR=$(basename $PROJECTS)
+  BASE=$DEPTH[5]
+
+  # TODO
+  # check if arg1 is url for quick cloning
+  # e.g. https://github.com/(org)/(repo)
+  ARGS=("${(s,/,)@}")
+  ORG=$ARGS[1]
+  REPO=$ARGS[2]
+
+  if [[ -e $1 ]]; then
+    local answer=Y
+    vared -p "$PROJECTS/$1 exists. visit? " answer
+    if [[ $? -gt 0 || $answer -ne "Y" ]]; then return 1; fi
+    cd $1
+  else
+    if [[ -z $ORG ]]; then
+      <&2 echo 'Usage: [org/]<repo>'
+      return 1
+    elif [[ $DEPTH[4] != $PROJECTS_DIR || $#DEPTH > 5 || $#DEPTH < 3 ]]; then
+      <&2 echo "you must use \`$0\` in $PROJECTS or a child directory"
+      return 1
+    elif [[ $1 == */* ]]; then
+      if [[ $#DEPTH == 4 ]]; then
+        echo "creating $ORG..."
+        mkdir $ORG
+        cd $ORG
+      fi
+      hub clone $ORG/$REPO
+      cd $REPO
+    else
+      hub clone $BASE/$1
+      cd $1
+    fi
+  fi
+
+  if [[ -z $REPO ]]; then REPO=$ORG; fi
+
+  test -z $TMUX && tmux new-session -A -s $REPO
 }
