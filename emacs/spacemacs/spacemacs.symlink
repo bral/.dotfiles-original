@@ -65,6 +65,9 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(ac-ispell-requires 4)
  '(adaptive-wrap-extra-indent 0)
+ '(after-save-hook
+   (quote
+    (executable-make-buffer-file-executable-if-script-p)))
  '(ahs-case-fold-search nil)
  '(ahs-default-range (quote ahs-range-whole-buffer))
  '(ahs-idle-interval 0.25)
