@@ -10,16 +10,13 @@ which require an initialization must be listed explicitly in the list.")
   (use-package json-mode
     :defer t
     :init
-    (add-hook 'json-mode-hook
-              (lambda ()
-                (setq js-indent-level 2)))))
+    (add-hook 'json-mode-hook (lambda () (setq js-indent-level 2)))))
 
 (defun js/init-js2-mode ()
   (use-package js2-mode
     :defer t
     :config
     (progn
-      (adaptive-wrap-prefix-mode)
 
       (setq-default js2-global-externs '(
         "node" ;; node-webkit
@@ -45,7 +42,6 @@ which require an initialization must be listed explicitly in the list.")
       (setq-default js2-allow-rhino-new-expr-initializer nil)
       (setq-default js2-auto-indent-p nil)
       (setq-default js2-enter-indents-newline nil)
-      (setq-default js2-strict-inconsistent-return-warning nil)
 
       ;; Skip semi-colon if one is present
       (define-key js2-mode-map (kbd ";")
@@ -57,24 +53,10 @@ which require an initialization must be listed explicitly in the list.")
 
       ;; Use lambda for anonymous functions
       (font-lock-add-keywords
-      'js2-mode `(("\\(function\\)\\*?("
+      'js2-mode `(("\\(function\\)("
                     (0 (progn (compose-region (match-beginning 1)
                                               (match-end 1) "\u0192")
                               nil)))))
-
-      ;; ;; Anonymous generator
-      ;; (font-lock-add-keywords
-      ;; 'js2-mode `(("\\(function\\*\\)("
-      ;;               (0 (progn (compose-region (match-beginning 1)
-      ;;                                         (match-end 1) "\u03B3")
-      ;;                         nil)))))
-
-      ;; ;; Named generator
-      ;; (font-lock-add-keywords
-      ;; 'js2-mode `(("\\(function\\*\\)[A-Za-z_\$]"
-      ;;               (0 (progn (compose-region (match-beginning 1)
-      ;;                                         (match-end 1) "\u0194")
-      ;;                         nil)))))
 
       ;; Use right arrow for return in one-line functions
       (font-lock-add-keywords

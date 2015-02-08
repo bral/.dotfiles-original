@@ -1,3 +1,4 @@
+(setq-default evil-shift-width 2)
 (setq evil-shift-width 2)
 
 ;; increase text globally instead of by-buffer

@@ -1,9 +1,10 @@
-;; -*- mode: emacs-lisp -*-
+; -*- mode: emacs-lisp -*-
 
 ;; Configuration Layers
 ;; --------------------
 
 (setq-default
+
  dotspacemacs-configuration-layer-path
  (cons dotfiles-spacemacs-contribs-dir ())
 
@@ -15,47 +16,56 @@
    rust
    stylus
    ;; user-defined contribs
-   adaptive-wrap
    bindings
    eshell
    fringe
-   local
    maybe-exit
    ;; spacemacs contribs
+   git
+   html
    javascript
+   org-repo-todo
    )
+
  dotspacemacs-excluded-packages
  '(
-   rainbow-delimiters-mode
    )
-)
 
-;; Settings
-;; --------
+ dotspacemacs-startup-banner 'random
+ dotspacemacs-themes '(solarized-dark)
+ dotspacemacs-default-font '("Source Code Pro"
+                             :size 13
+                             :weight normal
+                             :width normal
+                             :powerline-scale 1.1)
 
-(setq-default
+ dotspacemacs-startup-banner 'random
  dotspacemacs-default-theme 'solarized-dark
  dotspacemacs-leader-key "SPC"
  dotspacemacs-command-key ":"
- dotspacemacs-guide-key-delay 0.25
+ dotspacemacs-guide-key-delay 0.3
  dotspacemacs-fullscreen-at-startup nil
  dotspacemacs-smooth-scrolling t
  dotspacemacs-feature-toggle-leader-on-jk nil
  dotspacemacs-smartparens-strict-mode nil
  dotspacemacs-persistent-server nil
  dotspacemacs-default-package-repository nil
-)
+ )
 
 (defun dotspacemacs/init ()
   "User initialization for Spacemacs. This function is called at the very
  startup."
   (load-file dotfiles-spacemacs-before)
+  (setq-default evil-escape-key-sequence "kj")
 )
 
 (defun dotspacemacs/config ()
   "This is were you can ultimately override default Spacemacs configuration.
 This function is called at the very end of Spacemacs initialization."
   (load-file dotfiles-spacemacs-after)
+
+  (setq ace-jump-mode-move-keys (loop for i from ?a to ?z collect i))
+  (global-linum-mode t)
 )
 
 (custom-set-variables
@@ -73,23 +83,50 @@ This function is called at the very end of Spacemacs initialization."
  '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
- '(evil-shift-width 2)
+ '(blink-cursor-mode nil)
+ '(column-number-mode t)
+ '(expand-region-contract-fast-key "V")
+ '(expand-region-reset-fast-key "r")
+ '(font-lock-global-modes (quote (not speedbar-mode)))
  '(fringe-mode 0 nil (fringe))
- '(global-linum-mode t)
  '(global-vi-tilde-fringe-mode nil)
+ '(helm-org-headings-fontify t)
  '(js-indent-level 2)
  '(js2-allow-rhino-new-expr-initializer nil)
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p nil)
- '(js2-missing-semi-one-line-override t)
+ '(js2-mode-show-strict-warnings nil)
  '(js2-strict-inconsistent-return-warning nil)
  '(js2-strict-missing-semi-warning nil)
+ '(org-bullets-bullet-list (quote ("-" "+" "*" "-")))
+ '(org-cycle-level-faces t)
+ '(org-fontify-whole-heading-line t)
+ '(org-level-color-stars-only t)
+ '(org-n-level-faces 1)
+ '(org-src-fontify-natively nil)
  '(paradox-automatically-star nil)
  '(paradox-github-token "1689fad5bfda2bd772d75413c83de38cb02418da")
- '(ring-bell-function (quote ignore) t))
+ '(ring-bell-function (quote ignore) t)
+ '(show-paren-mode t)
+ '(smie-indent-basic 2)
+ '(solarized-distinct-fringe-background t)
+ '(solarized-high-contrast-mode-line nil)
+ '(solarized-use-less-bold t)
+ '(solarized-use-variable-pitch t)
+ '(tool-bar-mode nil)
+ '(after-save-hook
+     (quote
+      (executable-make-buffer-file-executable-if-script-p))))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(linum ((t (:background "#073642" :foreground "#586e75")))))
+ '(default ((t (:family "Source Code Pro"))))
+ ;; '(linum ((t (:background "#073642" :foreground "#586e75"))))
+ '(linum ((t (:background "#022b35" :foreground "#586e75"))))
+ '(org-level-1 ((t (:inherit variable-pitch :foreground "white" :weight bold :height 1 :family "Source Code Pro"))))
+ '(org-level-2 ((t (:inherit variable-pitch :foreground "blue" :weight bold :height 1 :family "Source Code Pro"))))
+ '(org-level-3 ((t (:inherit variable-pitch :foreground "gray" :weight bold :height 1 :family "Source Code Pro"))))
+ '(org-level-4 ((t (:inherit variable-pitch :foreground "yellow" :weight bold :height 1 :family "Source Code Pro")))))

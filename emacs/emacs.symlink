@@ -32,4 +32,18 @@
   (expand-file-name (concat dotfiles-spacemacs-dir "scratches/"))
   "Spacemacs scratch files.")
 
+(add-to-list 'auto-mode-alist
+             '("\\.zsh\\'" . (lambda ()
+                             (shell-script-mode)
+                             (setq evil-shift-width 2)
+                             )))
+
+(add-to-list 'auto-mode-alist
+             '("\\.env\\'" .  (shell-script-mode)))
+
+(add-to-list 'auto-mode-alist
+             '("\\.ess\\'" . (lambda ()
+                             (stylus-mode)
+                             )))
+
 (load (concat user-emacs-directory "init.el"))

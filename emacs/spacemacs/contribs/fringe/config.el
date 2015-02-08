@@ -8,6 +8,7 @@
 ;; http://stackoverflow.com/questions/3875213/turning-on-linum-mode-when-in-python-c-mode
 (setq linum-mode-inhibit-modes-list
   '(
+    spacemacs
     spacemacs-mode
     eww-mode
     eshell-mode
@@ -32,6 +33,5 @@
 
 (custom-set-variables
  '(fringe-mode 0 nil (fringe))
- '(global-linum-mode t)
  '(global-vi-tilde-fringe-mode nil)
  )

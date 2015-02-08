@@ -9,8 +9,12 @@ mkdir -p \
   $TARGET/eshell \
   $TARGET/.cache
 
-cp $SPACEMACS/banner.txt $TARGET/core/banner.txt
+ln -s $COMMON/eshell/alias $TARGET/eshell/alias 2 &>/dev/null
+ln -s $SPACEMACS/spacemacs.symlink ~/.spacemacs 2 &>/dev/null
+ln -fs $SPACEMACS/extensions/yasnippet-snippets snippets
 
-# ln -fs $COMMON/eshell/alias $TARGET/eshell/alias
-
-# ln -fs $SPACEMACS/spacemacs.symlink ~/.spacemacs
+# use our banners instead
+rm $TARGET/core/banners/*
+for b in $(ls banners); do
+  ln -fs $SPACEMACS/banners/$b ~/.emacs.d/core/banners/$b
+done

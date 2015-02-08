@@ -16,6 +16,3 @@
 ;; Set prompt regexp so eshell can exit.
 ;; This is necessary since our prompt has a newline.
 (setq eshell-prompt-regexp "^[^#$\n]*[ε] : ")
-
-;; (require-package 'multi-eshell)
-;; (define-key mac-key-mode-map [(alt :)] 'multi-eshell)

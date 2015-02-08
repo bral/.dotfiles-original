@@ -25,5 +25,4 @@
 (defun bindings/init-elscreen ()
   (use-package elscreen
     :init
-    (progn
-      (elscreen-start))))
+    (elscreen-start)))

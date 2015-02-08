@@ -38,20 +38,6 @@
 (global-set-key (caps-lock-bind "v") 'split-window-vertically-and-switch)
 (global-set-key (caps-lock-bind "w") 'delete-window)
 
-;; projectile
-
-(define-prefix-command (key-binding (kbd "A-p")))
-
-(global-set-key (kbd "A-p P") 'projectile-mode)
-
-(define-key projectile-mode-map (kbd "A-p d") 'projectile-find-dir)
-(define-key projectile-mode-map (kbd "A-p p") 'projectile-switch-project)
-(define-key projectile-mode-map (kbd "A-p f") 'projectile-find-file)
-(define-key projectile-mode-map (kbd "A-p e") 'projectile-recentf)
-(define-key projectile-mode-map (kbd "A-p r") 'projectile-replace)
-(define-key projectile-mode-map (kbd "A-p R") 'projectile-regenerate-tags)
-(define-key projectile-mode-map (kbd "A-p g") 'projectile-grep)
-
 ;; eshell
 
 (global-set-key (kbd "A-M-:") 'eshell)
