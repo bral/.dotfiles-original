@@ -6,7 +6,7 @@
 (defvar bindings-post-extensions
   '(
     mac-key-mode
-    elscreen
+    ;; elscreen
     ))
 
 (defun bindings/init-use-package ()
@@ -21,8 +21,3 @@
       (setq mac-command-modifier 'alt)
       (setq mac-option-modifier 'meta)
       )))
-
-(defun bindings/init-elscreen ()
-  (use-package elscreen
-    :init
-    (elscreen-start)))
