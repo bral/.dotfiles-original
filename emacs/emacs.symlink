@@ -46,4 +46,6 @@
                              (stylus-mode)
                              )))
 
+(add-to-list 'magic-mode-alist '("# +res_.+" . conf-mode))
+
 (load (concat user-emacs-directory "init.el"))
