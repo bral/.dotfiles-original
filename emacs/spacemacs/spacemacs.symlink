@@ -6,33 +6,57 @@
 (setq-default
 
  dotspacemacs-configuration-layer-path
- (cons dotfiles-spacemacs-contribs-dir ())
+ (cons dotfiles-spacemacs-contribs-dir (
+                                        '~/.dotfiles/emacs/spacemacs/contribs/'
+                                        ))
 
  dotspacemacs-configuration-layers
- '(
+ 'all
+   ;; (
    ;; language-specific contribs
-   jade
-   js
-   rust
-   stylus
+   ;; jade
+   ;; js
+   ;; rust
+   ;; stylus
+   ;; slim
    ;; user-defined contribs
-   bindings
-   eshell
-   fringe
-   maybe-exit
+   ;; bindings
+   ;; eshell
+   ;; fringe
+   ;; maybe-exit
    ;; spacemacs contribs
-   git
-   html
-   javascript
-   org-repo-todo
-   )
+   ;; themes-megapack
+   ;; ruby
+   ;; erlang-elixir
+   ;; markdown
+   ;; extra-langs
+   ;; git
+   ;; html
+   ;; javascript
+   ;; org-repo-todo
+   ;; )
 
  dotspacemacs-excluded-packages
  '(
    )
 
- dotspacemacs-startup-banner 'random
- dotspacemacs-themes '(solarized-dark)
+ web-mode-markup-indent-offset 2
+ web-mode-css-indent-offset 2
+ web-mode-code-indent-offset 2
+ web-mode-style-padding 2
+ web-mode-script-padding 2
+ web-mode-attr-indent-offset 2
+ web-mode-content-types-alist '(
+                                ("jsx" . "/*\\.js\\'")
+                                ("js" . "/*\\.js\\'")
+                                ("html" . "/*\\.js\\'")
+                                )
+ dotspacemacs-themes '(
+                       monokai
+                       sanityinc-tomorrow-bright
+                       flatland
+                       solarized-dark
+                       )
  dotspacemacs-default-font '("Source Code Pro"
                              :size 13
                              :weight normal
@@ -40,7 +64,6 @@
                              :powerline-scale 1.1)
 
  dotspacemacs-startup-banner 'random
- dotspacemacs-default-theme 'solarized-dark
  dotspacemacs-leader-key "SPC"
  dotspacemacs-command-key ":"
  dotspacemacs-guide-key-delay 0.3
@@ -75,9 +98,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(ac-ispell-requires 4)
  '(adaptive-wrap-extra-indent 0)
- '(after-save-hook
-   (quote
-    (executable-make-buffer-file-executable-if-script-p)))
+ '(add-hook before-save-hook 'whitespace-cleanup)
  '(ahs-case-fold-search nil)
  '(ahs-default-range (quote ahs-range-whole-buffer))
  '(ahs-idle-interval 0.25)
@@ -125,7 +146,6 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Source Code Pro"))))
  ;; '(linum ((t (:background "#073642" :foreground "#586e75"))))
- '(linum ((t (:background "#022b35" :foreground "#586e75"))))
  '(org-level-1 ((t (:inherit variable-pitch :foreground "white" :weight bold :height 1 :family "Source Code Pro"))))
  '(org-level-2 ((t (:inherit variable-pitch :foreground "blue" :weight bold :height 1 :family "Source Code Pro"))))
  '(org-level-3 ((t (:inherit variable-pitch :foreground "gray" :weight bold :height 1 :family "Source Code Pro"))))

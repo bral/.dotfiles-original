@@ -38,6 +38,9 @@
 (global-set-key (caps-lock-bind "v") 'split-window-vertically-and-switch)
 (global-set-key (caps-lock-bind "w") 'delete-window)
 
+;; neotree
+(global-set-key (caps-lock-bind ",") 'neotree-previous-node)
+
 ;; eshell
 
 (global-set-key (kbd "A-M-:") 'eshell)

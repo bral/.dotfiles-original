@@ -13,7 +13,6 @@ tags
 *.tern-port
 
 node_modules
-components
 build
 npm-debug.log
 deps

@@ -28,9 +28,6 @@
 
 (ad-activate 'linum-on)
 
-(custom-set-faces
- '(linum ((t (:background "#073642" :foreground "#586e75")))))
-
 (custom-set-variables
  '(fringe-mode 0 nil (fringe))
  '(global-vi-tilde-fringe-mode nil)

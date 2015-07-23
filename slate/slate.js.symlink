@@ -15,24 +15,13 @@ slate.configAll({
   nudgePercentOf: 'screenSize',
   resizePercentOf: 'screenSize',
   orderScreensLeftToRight: true,
-  checkDefaultsOnLoad: true,
-  undoOps: [
-    'active-snapshot',
-    'chain',
-    'grid',
-    'layout',
-    'move',
-    'resize',
-    'sequence',
-    'shell',
-    'push'
-  ]
+  checkDefaultsOnLoad: true
 });
 
 // Operations
 var Ops = {};
 
-  // Screen Positions
+// Screen Positions
 Ops.left = {};
 Ops.middle = {};
 Ops.right = {};
@@ -40,17 +29,28 @@ Ops.right = {};
 Ops.screenFull = S.op('push', {
   'direction': 'top',
   'style': 'bar-resize:screenSizeX'
-})
+});
 
 Ops.screenRight = S.op('push', {
   'direction': 'right',
   'style': 'bar-resize:screenSizeX/2'
-})
+});
 
 Ops.screenLeft = S.op('push', {
   'direction': 'left',
   'style': 'bar-resize:screenSizeX/2'
-})
+});
+
+Ops.cornerScreen = S.op('corner', {
+  'direction': 'top-left',
+  'width': 'windowSizeX/2',
+  'height': 'windowSizeX/2'
+});
+
+Ops.screenTopRight = Ops.cornerScreen.dup({'direction': 'top-right'});
+Ops.screenTopLeft = Ops.cornerScreen.dup({'direction': 'top-left'});
+Ops.screenBottomRight = Ops.cornerScreen.dup({'direction': 'bottom-right'});
+Ops.screenBottomLeft = Ops.cornerScreen.dup({'direction': 'bottom-left'});
 
 Ops.left.full = Ops.screenFull.dup({'screen': 0});
 Ops.left.left = Ops.screenLeft.dup({'screen': 0});
@@ -74,56 +74,50 @@ S.on('appOpened', function(event, app){
 
   if(name === 'Emacs'){
     app.eachWindow(function(win){
-      count >= 1 && win.doOperation(Ops.middle.left);
-      count === 1 && win.doOperation(Ops.left.left);
+      return count > 1 ? win.doOperation(Ops.middle.right) : win.doOperation(Ops.left.left);
     });
-  };
+  }
 
-  if(name === 'iTerm'){
+  if(name === 'iTerm' || name === 'iTerm2'){
     app.eachWindow(function(win){
-      count >= 1 && win.doOperation(Ops.middle.right);
-      count === 1 && win.doOperation(Ops.left.right);
+      return count > 1 ? win.doOperation(Ops.middle.left) : win.doOperation(Ops.left.right);
     });
-  };
+  }
 
   if(name === 'Microsoft Outlook'){
     app.eachWindow(function(win){
-      count >= 1 && win.doOperation(Ops.right.full);
-      count === 1 && win.doOperation(Ops.left.full);
+      return count > 1 ? win.doOperation(Ops.right.full) : win.doOperation(Ops.left.full);
     });
-  };
+  }
 
   if(name === 'Google Chrome'){
     app.eachWindow(function(win){
-      count >= 1 && win.doOperation(Ops.left.right);
-      count === 1 && win.doOperation(Ops.left.full);
+      return count >= 1 && win.doOperation(Ops.right.left);
     });
-  };
+  }
 
   if(name === 'Spotify'){
     app.eachWindow(function(win){
-      count >= 1 && win.doOperation(Ops.right.full);
-      count === 1 && win.doOperation(Ops.left.full);
+      return count > 1 ? win.doOperation(Ops.left.full) : win.doOperation(Ops.left.full);
     });
-  };
+  }
 
-  if(name === 'Slate'){
+  if(name === 'Slack'){
     app.eachWindow(function(win){
-      count >= 1 && win.doOperation(Ops.right.right);
-      count === 1 && win.doOperation(Ops.left.right);
+      return count > 1 ? win.doOperation(Ops.left.full) : win.doOperation(Ops.left.right);
     });
-  };
+  }
 });
 
-// layouts
+// Default Layouts
 var oneMonitorLayout = S.lay('1monitor', {
   '_after_': {
     'operations': [Ops.focusiTerm, Ops.focusEmacs]
   },
-  'Google Chrome': {
-    'operations': [Ops.left.full],
-    'repeat': true
-  },
+  // 'Google Chrome': {
+  //   'operations': [Ops.left.full],
+  //   'repeat': true
+  // },
   'iTerm': {
     'operations': [Ops.left.right]
   },
@@ -147,30 +141,45 @@ var threeMonitorLayout = S.lay('3monitor', {
     'operations': [Ops.focusiTerm, Ops.focusEmacs]
   },
   'Google Chrome': {
-    'operations': [Ops.left.right],
+    'operations': [Ops.right.left],
+    'repeat': true
+  },
+  'Chrome': {
+    'operations': [Ops.right.left],
     'repeat': true
   },
   'Emacs': {
-    'operations': [Ops.middle.left],
-    'repeat': true
-  },
-  'iTerm': {
     'operations': [Ops.middle.right],
     'repeat': true
   },
+  'Activity Monitor': {
+    'operations': [Ops.left.left],
+    'repeat': true
+  },
+  'iTerm': {
+    'operations': [Ops.middle.left],
+    'repeat': true
+  },
   'Microsoft Outlook': {
-    'operations': [Ops.right.full],
+    'operations': [Ops.left.full],
+    'repeat': true
+  },
+  'Outlook': {
+    'operations': [Ops.left.full],
     'repeat': true
   },
   'Spotify': {
-    'operations': [Ops.right.full],
+    'operations': [Ops.left.full],
     'repeat': true
   },
   'Slack': {
-    'operations': [Ops.right.right]
+    'operations': [Ops.left.full]
+  },
+  'Skype': {
+    'operations': [Ops.left.left]
   },
   'Messages': {
-    'operations': [Ops.right.left]
+    'operations': [Ops.left.right]
   }
 });
 
@@ -179,13 +188,13 @@ S.def(1, oneMonitorLayout);
 // S.def(2, twoMonitorsLayout);
 S.def(3, threeMonitorLayout);
 
-// Layout Operations
+// layout operations
 var oneMonitor = S.op('layout', {name: '1monitor' });
 // var twoMonitors = S.op('layout', {name: twoMonitorsLayout });
 var threeMonitor = S.op('layout', {name: '3monitor' });
 
 // Universal Layout Function
-function universalLayout(win){
+function universalLayout(){
   var count = S.screenCount();
 
   if(count === 1){
@@ -242,6 +251,7 @@ slate.bindAll({
 
       // full-screen
       f: $('center', 'top', 1, 1),
+
       shift: {
         // bars
         h: [$('barResize', 'left',  1.5),
@@ -268,8 +278,7 @@ slate.bindAll({
     },
 
     // utility functions
-    esc: 'hint',
-    z: 'undo'
+    esc: 'hint'
   },
   ctrl:{
     alt: {
