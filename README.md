@@ -4,4 +4,4 @@
 
 ## Installation
 
-    (mkdir ~/.dotfiles && cd ~/.dotfiles && curl -L# https://github.com/mndvns/.dotfiles/archive/master.tar.gz | tar zx --strip 1 && ./bootstrap)
+    (mkdir ~/.dotfiles && cd ~/.dotfiles && curl -L# https://github.com/bral/.dotfiles/archive/master.tar.gz | tar zx --strip 1 && ./bootstrap)
